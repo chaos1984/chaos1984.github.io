@@ -1,0 +1,11 @@
+header {position: relative;z-index: 50;}
+.menu li {display: inline-block;float: left;}
+.altList .openingHours {margin-top: -16px;}
+#main .container {background: url(../img/bg_ie7.gif) center bottom repeat-x}
+.transparentHR {display: none;}
+ul.alt li {padding-bottom: 0 !important;}
+.altList li+li {margin-top: 4px;}
+.altList2 {margin-top: 25px;}
+.pagina {overflow: hidden;}
+.pagina li {display: inline-block;float: left;}
+.pagina li a {line-height: 10px;}
