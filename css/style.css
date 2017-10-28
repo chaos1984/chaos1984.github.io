@@ -1,8 +1,12 @@
 body {
 	background: url(../img/bg_body.gif) #222938 repeat-x left top;
+/*	background: url(../img/body_piceis.jpg) #222938 no-repeat ;
+*/
+	margin: 0px;
+	padding: 0px;
 }
 
-h1, h2, .title span, .cv h3, .subpage h3, .subpage h4, .gallery-nav a, .subpage blockquote p, .month, .vcard h3 {
+h1, h2, .title span, .cv h3, .subpage h3, .subpage h4, .gallery-nav a, .subpage blockquote p, .month, .vcard h3,.vcard p {
 	color: #fff;
 }
 
@@ -10,8 +14,14 @@ h1, h2, .title span, .cv h3, .subpage h3, .subpage h4, .gallery-nav a, .subpage 
 	color: #cfcfcf;
 }
 
-.pane span, .title, .cv .desc, .cv p, .subpage p, .subpage ol span, .cv ul ul li, .contact p, .url, .email, .contact .clearboth{
+.pane span, .title,  .cv p, .subpage p, .subpage ol span, .cv ul ul li, .contact p, .url, .email, .contact .clearboth{
 	color: #70828e;
+}
+.cv .desc{
+	color: white;
+	font-size: 14px;
+	letter-spacing: 1px;
+	line-height: 20px;
 }
 
 #logo h2, .big-number, .title a:hover, #main-menu li.current > a, #main-menu a:hover {
@@ -30,8 +40,10 @@ h1, h2, .title span, .cv h3, .subpage h3, .subpage h4, .gallery-nav a, .subpage 
 	background: url(../img/bg_header.png) no-repeat center top;
 }
 
-.rss {
-	background: url(../img/icon_rss.png) no-repeat left top;
+.qq {
+	background: url(../img/icon_qq.png) no-repeat left top;
+	/*border-width: 2px;*/
+	box-shadow: 2px;
 }
 
 .fb {
@@ -242,9 +254,9 @@ time {
 	color: #fff;
 }
 
-			#content table tr.borderless td {
-				border-bottom: 0;
-			}
+#content table tr.borderless td {
+	border-bottom: 0;
+}
 
 .subpage .sub-table td {
 	border-right: 1px solid #314655;
@@ -349,4 +361,9 @@ time {
 
 #main-menu li.sub:hover > a {
 	background: url(../img/border_submenu.gif) no-repeat left top;
+}
+
+.background{
+	background-color: red;
+	float: right;
 }

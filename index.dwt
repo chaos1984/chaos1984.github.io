@@ -19,21 +19,27 @@
 	<!--<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-<div class="container1" id="wrapper">
+<div class="container1" id="wrapper·">
 	<div class="cal" id="wrap">
 		<header id="header">			
 			<nav id="main-menu" class="right">
 				<ul>
 					<li class="current sub">
 						<a href="index.html" class="fontsize">我的主页</a>
+						<ul>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li><a href="blog.html">博客</a></li>
+						</ul>
 					</li>
 					<li class="sub">
-						<a href="#" class="fontsize">学术研究</a>
+						<a href="calendar.html" class="fontsize">学术研究</a>
 						<ul>
 							<li class="sub-sub">
 								<a href="#">结构力学</a>
 								<ul>
-									<li><a href="#">暂无内容</a></li>
+									<li><a href="#">One</a></li>
+									<li><a href="#">Two</a></li>
+									<li><a href="#">Three</a></li>
 								</ul>									
 							</li>	
 							<li class="sub-sub">
@@ -47,7 +53,7 @@
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="#" class="fontsize">工作经验</a>
+						<a href="subpage.html" class="fontsize">工作经验</a>
 						<ul>
 							<li><a href="subpage.html">Subpage</a></li>
 							<li><a href="subpage.html">Subpage</a></li>
@@ -55,9 +61,13 @@
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="education.html" class="fontsize">教育经历</a>
+						<a href="cv.html" class="fontsize">教育经历</a>
+						<ul>
+							<li><a href="cv.html">CV</a></li>
+							<li><a href="subpage.html">Subpage</a></li>
+						</ul>
 					</li>
-					<li><a href="contact.html" class="fontsize"><span>联系方式</span></a></li>
+					<li><a href="gallery.html" class="fontsize"><span>联系方式</span></a></li>
 
 				</ul>
 			</nav>
@@ -80,11 +90,8 @@
 		  </hgroup>
 		  
 		  <div class="box">
-				<h2>个人简介</h2>
-				<p>2016年，毕业于上海交通大学机械工程专业，获得工学博士学位。</p>
-				<p>长期从事核电压力容器、汽车强度耐久方面的工作，熟悉ASME压力容器规范、整车轻量化设计方法。</p>
-				<p>擅长ANSYS、Nastran等固体力学分析相关软件，及Fluent和CFX等流体力学相关软件。</p>
-				<p>具有较强的编程和软件二次开发能力，曾编写转子动力学、结构力学的有限元和边界元的Fortran程序和整车强度耐久相关的Python程序。</p>
+						<h2>个人简介</h2>
+						<p>2016年，毕业于上海交通大学机械工程专业，获得工学博士学位。</p>
 
 		  </div>
 		</article>
@@ -95,9 +102,13 @@
             </div>
 		</div>
 	  </section>
-      <section ><div id="profile" class="right">
+      <section >
         <!-- TemplateBeginEditable name="main" -->
         <div  class="container1"></div>
+
+
+
+        
       <!-- TemplateEndEditable --></section>
 		<!-- ===================================== START FOOTER ===================================== -->
 </div>

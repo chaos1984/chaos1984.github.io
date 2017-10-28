@@ -3,18 +3,18 @@
 <head>
 	<title>Yoking, CAE Dreammaker！</title>
 	<meta charset="UTF-8" />
-	<link href="css/style1.css" rel="stylesheet" media="all" />		
-	<link href="css/style.css" rel="stylesheet" media="all" />
+	<link href="../css/style1.css" rel="stylesheet" media="all" />		
+	<link href="../css/style.css" rel="stylesheet" media="all" />
 	<link href="http://fonts.googleapis.com/css?family=Signika:400,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
 	<link href="http://fonts.googleapis.com/css?family=Radley:400,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
 	<!--[if IE 7]><link rel="stylesheet" href="../css/ie7.css" /></script><![endif]-->
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" type="text/javascript"></script>
-	<script src="js/prettify.js" type="text/javascript"></script>
-	<script src="js/kickstart.js" type="text/javascript"></script>
-	<script src="js/custom-form-elements.js" type="text/javascript"></script>
-	<script src="js/cufon.js" type="text/javascript"></script>
+	<script src="../js/prettify.js" type="text/javascript"></script>
+	<script src="../js/kickstart.js" type="text/javascript"></script>
+	<script src="../js/custom-form-elements.js" type="text/javascript"></script>
+	<script src="../js/cufon.js" type="text/javascript"></script>
 	<!--<script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>-->
 	<!--<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -25,77 +25,85 @@
 			<nav id="main-menu" class="right">
 				<ul>
 					<li class="current sub">
-						<a href="index.html" class="fontsize">我的主页</a>
+						<a href="../index.html">About me</a>
+						<ul>
+							<li class="current"><a href="../index.html">Home</a></li>
+							<li><a href="../blog.html">Blog</a></li>
+						</ul>
 					</li>
 					<li class="sub">
-						<a href="#" class="fontsize">学术研究</a>
+						<a href="../calendar.html">Consultation</a>
 						<ul>
+							<li><a href="../calendar.html">One</a></li>
+							<li><a href="../subpage.html">Two</a></li>
 							<li class="sub-sub">
-								<a href="#">结构力学</a>
-								<ul>
-									<li><a href="#">暂无内容</a></li>
-								</ul>									
-							</li>	
-							<li class="sub-sub">
-								<a href="#">流体力学</a>
+								<a href="#">Three</a>
 								<ul>
 									<li><a href="#">One</a></li>
 									<li><a href="#">Two</a></li>
 									<li><a href="#">Three</a></li>
 								</ul>									
-							</li>	
+							</li>					
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="#" class="fontsize">工作经验</a>
+						<a href="../subpage.html">Office</a>
 						<ul>
-							<li><a href="subpage.html">Subpage</a></li>
-							<li><a href="subpage.html">Subpage</a></li>
-							<li><a href="subpage.html">Subpage</a></li>
+							<li><a href="../subpage.html">Subpage</a></li>
+							<li><a href="../subpage.html">Subpage</a></li>
+							<li><a href="../subpage.html">Subpage</a></li>
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="education.html" class="fontsize">教育经历</a>
+						<a href="../cv.html">History</a>
+						<ul>
+							<li><a href="../cv.html">CV</a></li>
+							<li><a href="../subpage.html">Subpage</a></li>
+						</ul>
 					</li>
-					<li><a href="contact.html" class="fontsize"><span>联系方式</span></a></li>
-
+					<li><a href="../gallery.html"><span>Gallery</span></a></li>
+					<li><a href="../contact.html">Contact</a></li>
 				</ul>
 			</nav>
-			<hr class="bc"></hr>
-			<div id="top" >
-				<ul >
-					<li><a class="qq"target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=51046438&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:51046438:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></li>
+			<div id="top" class="left">
+				<ul class="left">
+					<li><a class="rss" href="#">rss</a></li>
 					<li><a class="fb" href="#">facebook</a></li>							
 				</ul>
-
+			  <form class="left" />
+				</form>
 			</div>
 		</header>
 		<!-- ===================================== END HEADER ===================================== -->
 	  <section id="container">
 		<div id="profile" class="left">
 		<article class="left">
+			        <a id="logo" href="../index.html">
+					        <hgroup>
+		            </hgroup>
+          </a>
           <hgroup>
-			<h1><a id="logo" href="index.html">王予津 博士 </a></h1>
-			<h2><a id="logo" href="index.html">CAE Dreammaker</a></h2>
+				  <h1><a id="logo" href="../index.html">Dr.Yoking Wang</a></h1>
+				  <h1><a id="logo" href="../index.html">王予津 博士 </a></h1>
+				  <h2><a id="logo" href="../index.html">CAE Dreammaker</a></h2>
 		  </hgroup>
 		  
-		  <div class="box">
-				<h2>个人简介</h2>
-				<p>2016年，毕业于上海交通大学机械工程专业，获得工学博士学位。</p>
-				<p>长期从事核电压力容器、汽车强度耐久方面的工作，熟悉ASME压力容器规范、整车轻量化设计方法。</p>
-				<p>擅长ANSYS、Nastran等固体力学分析相关软件，及Fluent和CFX等流体力学相关软件。</p>
-				<p>具有较强的编程和软件二次开发能力，曾编写转子动力学、结构力学的有限元和边界元的Fortran程序和整车强度耐久相关的Python程序。</p>
-
+				  <div class="box top-border">
+						<h2>个人简介</h2>
+						<p>2016年，毕业于上海交通大学机械工程专业，获得工学博士学位。</p>
+						<p>&nbsp;</p>
+						<h2>&nbsp;</h2>
 		  </div>
 		</article>
                 
 		
-			<div id="promotion" class="right">
-            	<img src="img/photo.jpg" alt="Photo" />
+		<div id="promotion" class="right">
+    
+           	<span class="left"><span class="photo"><img src="../img/photo.jpg" alt="Photo" /></span></span>
             </div>
 		</div>
 	  </section>
-      <section ><div id="profile" class="right">
+      <section id="container1"><div id="profile" class="right">
         <!-- TemplateBeginEditable name="main" -->
         <div  class="container1"></div>
       <!-- TemplateEndEditable --></section>
