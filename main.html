@@ -11,12 +11,12 @@
 <style type="text/css">
 .bannerbox{width:100%;position:relative;overflow:hidden;}
 
-.Homebanner{width:100%;position:relative;height:450px;overflow:hidden;}
+.Homebanner{width:100%;position:relative;height:500px;overflow:hidden;}
 .Homebanner ul{width:100%;position:absolute;height:600px;}
 .Homebanner ul li{width:100%;height:600px;position:absolute;overflow:hidden;}
-.Homebanner ul li img{width:1900px;position:absolute;left:50%;top:0px;display:block;margin-left:-950px;}
+.Homebanner ul li img{width:600px;position:absolute;top:0px;display:block;}
 
-.Homeleft,.Homeright{background:#000;font-family:"宋体";width:50px;height:50px;line-height:50px;text-align:center;font-size:40px;color:#fff;position:absolute;top:45%;cursor:pointer;transition:all .2s ease;opacity:0;z-index:899999}
+.Homeleft,.Homeright{background:#000;font-family:"宋体";width:50px;height:50px;line-height:50px;text-align:center;font-size:40px;color:white;position:absolute;top:45%;cursor:pointer;transition:all .2s ease;opacity:0;z-index:899999}
 .Homeleft{left:-60px;}
 .Homeright{right:-60px;}
 
@@ -29,19 +29,15 @@
 
 .Homebannertext{position:absolute;left:0px;top:0px;width:100%;height:100%;}
 .Homebannertext img.bigimg{transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
-.Homebannertext dl.bannerone{position:absolute;width:1180px;left:50%;margin-left:-590px;top:251px;text-align:center;z-index:9999;}
-.Homebannertext dl.bannerone dt{float:right;font-size:45px;width:750px;height:80px;margin-left:100px;line-height:75px;color:#fff;background:#eb3900;transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
-.Homebannertext dl.bannerone dd{float:right;font-size:29px;color:#fff;background:#000;width:360px;height:60px;line-height:60px;margin-right:45px;transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
-.Homebannertext dl.bannertwo{position:absolute;width:1180px;left:50%;top:0px;color:#fff;margin-left:-590px;z-index:9999;}
-.Homebannertext dl.bannertwo dt{padding-top:110px;position:relative;transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
-.Homebannertext dl.bannertwo dt h3{font-size:50px;line-height:60px;font-weight:700;position:relative;}
-.Homebannertext dl.bannertwo dt p{font-size:20px;position:relative;padding-top:20px;}
-.Homebannertext dl.bannerthree{position:absolute;width:1220px;left:50%;margin-left:-610px;top:0px;}
-.Homebannertext dl.bannerthree dt{float:left;position:relative;transform:translateX(100px);-moz-transform:translateX(100px);-ms-transform:translateX(100px);-o-transform:translateX(100px);-webkit-transform:translateX(100px);}
-.Homebannertext dl.bannerthree img{display:block;position:relative;width:auto;height:auto;left:0px;margin:0px;top:0px;}
-.Homebannertext dl.bannerthree dd{width:500px;float:left;color:#fff;padding-top:170px;position:relative;padding-left:25px;transform:translateX(100px);-moz-transform:translateX(100px);-ms-transform:translateX(100px);-o-transform:translateX(100px);-webkit-transform:translateX(100px);}
-.Homebannertext dl.bannerthree dd h3{font-size:55px;font-weight:700;line-height:70px;}
-.Homebannertext dl.bannerthree dd p{font-size:20px;line-height:30px;}
+
+.Homebannertext dl.bannerone{position:absolute;width:600px;top:450px;z-index:9999;}
+.Homebannertext dl.bannerone dt{float:right;font-size:18px;width:600px;height:30px;line-height:30px;color:#fff;transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
+.Homebannertext dl.bannerone dt p{background-color: #666;opacity: 1;}
+
+.Homebannertext dl.bannertwo{position:absolute;width:600px;top:450px;z-index:9999;}
+.Homebannertext dl.bannertwo dt{float:right;font-size:18px;width:600px;height:30px;line-height:30px;color:#fff;background:#eb3900;transform:translateY(100px);-moz-transform:translateY(100px);-ms-transform:translateY(100px);-o-transform:translateY(100px);-webkit-transform:translateY(100px);}
+.Homebannertext dl.bannertwo dt p{background-color: #666;}
+
 
 .bannereffect{opacity:0;filter:alpha(opacity=0);}
 
@@ -102,52 +98,77 @@ $(document).ready(function(){
 });
 </script>
 
+
+
+
 <div class="bannerbox">
 
 	<div class="Homebanner">
 		<ul>
 			<li class="Load cur" style="z-index:99">
-				<img src="img/banner2016.jpg" alt="" width="529">
 				<div class="Homebannertext">
-					<img src="img/banner2016.png" width="526" class="bannereffect bannertime bigimg">
+					<img src="img/000.png" class="bannereffect bannertime bigimg">
 					<dl class="bannerone clearfix">
 						<dt class="bannereffect bannertime1">
-							 网站建设<b>第一品牌</b>·互联网整合专家
+							 <p>博士课题-大型屏蔽电机主泵飞轮间隙流场传热特性及其结构完整性研究</p>
 						</dt>
-						<dd class="bannereffect bannertime2">
-							 为梦想者创造梦想品牌
-						</dd>
 					</dl>
 				</div>
 			</li>
 			<li class="Load">
-				<img src="img/banner02.jpg" alt="" width="528">
 				<div class="Homebannertext">
-					<img src="img/02.png" width="531" class="bannereffect bannertime bigimg">
+					<img src="img/010.png" class="bannereffect bannertime bigimg">
 					<dl class="bannertwo clearfix">
 						<dt class="bannereffect bannertime1">
-							 <h3>专业的O2O商城系统</h3>
-							 <p>微信商城、手机商城、网上商城一体化的商城系统！</p>
+							 <p>博士课题-小尺度Gortler涡传热机理</p>
 						</dt>
 					</dl>
 				</div>
 			</li>
-			<li class="Load"><img src="img/03.jpg" alt="" width="535">
+			<li class="Load">
 				<div class="Homebannertext">
-					<dl class="bannerthree clearfix">
-						<dt class="bannereffect bannertime"><img src="img/03-1.png" alt="" width="534"></dt>
-						<dd class="bannereffect bannertime1">
-							 <img src="img/03-2.png" alt="">
-							 <h3>持续追求更高品质</h3>
-							 <p>我们服务了超过1500家企业，其中300家为上市公司，集团企业及政府机构，让我们的专业帮助您的品牌更有效率的传播！</p>
-						</dd>
+					<img src="img/011.png" class="bannereffect bannertime bigimg">
+					<dl class="bannertwo clearfix">
+						<dt class="bannereffect bannertime1">
+							 <p>博士课题-飞轮环向间隙流场对飞轮-转子影响</p>
+						</dt>
+					</dl>
+				</div>
+			</li>
+			<li class="Load">
+				<div class="Homebannertext">
+					<img src="img/003.png" class="bannereffect bannertime bigimg">
+					<dl class="bannertwo clearfix">
+						<dt class="bannereffect bannertime1">
+							 <p>论坛获奖作品-复杂几何体六面体网格划分(ANSYS/APDL)</p>
+						</dt>
+					</dl>
+				</div>
+			</li>
+			<li class="Load">
+				<div class="Homebannertext">
+					<img src="img/004.gif" class="bannereffect bannertime bigimg">
+					<dl class="bannertwo clearfix">
+						<dt class="bannereffect bannertime1">
+							 <p>安世亚太十佳论文-裂纹尖端有限元模型建模技术研究和精度分析</p>
+						</dt>
+					</dl>
+				</div>
+			</li>
+			<li class="Load">
+				<div class="Homebannertext">
+					<img src="img/006.png" class="bannereffect bannertime bigimg">
+					<dl class="bannertwo clearfix">
+						<dt class="bannereffect bannertime1">
+							 <p>IND4骑车人兼职讲师</p>
+						</dt>
 					</dl>
 				</div>
 			</li>
 		</ul>
 		<div class="Homeleft"><</div>
 		<div class="Homeright">></div>
-		<div class="Homedot"><a href="javascript:;" class="cur">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a></div>
+		<div class="Homedot"><a href="javascript:;" class="cur">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a></div>
 	</div>
   
     
