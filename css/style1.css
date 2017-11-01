@@ -214,6 +214,18 @@ button {
 	height: 480px;
 	padding:0px 10px 0px 10px;
 }
+.container1 h1{
+	font-family: Arial;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+	}
+.container1 h2{
+	font-family: Arial;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+	text-indent: 20px;
+	line-height: 17px;
+	}
 
 
 #logo {

@@ -1,20 +1,29 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
 <head>
 	<title>王予津的个人网站</title>
 	<meta charset="UTF-8" />
 	<link href="css/style1.css" rel="stylesheet" media="all" />		
 	<link href="css/style.css" rel="stylesheet" media="all" />
-	<link href="http://fonts.googleapis.com/css?family=Signika:400,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
-	<link href="http://fonts.googleapis.com/css?family=Radley:400,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+<!-- 	<link href="http://fonts.googleapis.com/css?family=Signika:400,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Radley:400,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" /> -->
 	<!--[if IE 7]><link rel="stylesheet" href="../css/ie7.css" /></script><![endif]-->
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" type="text/javascript"></script>
+	<!-- <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" type="text/javascript"></script> -->
 	<script src="js/prettify.js" type="text/javascript"></script>
 	<script src="js/kickstart.js" type="text/javascript"></script>
 	<script src="js/custom-form-elements.js" type="text/javascript"></script>
 	<script src="js/cufon.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function defaulIframePageHeight() {
+		    var ifm = document.getElementById("defaulIframePage");
+		    var subWeb = document.frames ? document.frames["defaulIframePage"].document : ifm.contentDocument;
+		    if (ifm != null && subWeb != null) {
+		        ifm.height = subWeb.body.scrollHeight;
+		    	}
+		}
+	</script>
 	<!--<script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>-->
 	<!--<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -26,11 +35,8 @@
 				<ul>
 					<li class="sub">
 						<a href="index.html" class="fontsize">我的主页</a>
-						<ul>
-							<li class="current"><a href="index.html">Home</a></li>
-						</ul>
 					</li>
-					<li class="sub">
+					<li class="current sub">
 						<a href="fluid.html" class="fontsize">学术研究</a>
 						<ul>
 							<li class="sub">
@@ -41,17 +47,18 @@
 							</li>
 
 							<li class="sub">
-								<a href="solid.html">固体力学</a>
-<!-- 								<ul>
-									<li><a href="#">One</a></li>
-									<li><a href="#">Two</a></li>
-									<li><a href="#">Three</a></li>
-								</ul>	 -->								
+								<a href="solid.html">固体力学</a>						
+							</li>
+							<li class="sub">
+								<a href="dynamic.html">转子动力学</a>				
+							</li>
+							<li class="sub">
+								<a href="optimization.html">优化设计</a>			
 							</li>	
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="subpage.html" class="fontsize">工作经验</a>
+						<a href="#" class="fontsize">工作经验</a>
 						<ul>
 							<li><a href="subpage.html">Subpage</a></li>
 							<li><a href="subpage.html">Subpage</a></li>
@@ -61,9 +68,7 @@
 					<li class="sub">
 						<a href="education.html" class="fontsize">教育经历</a>
 					</li>
-
-					<li class="current sub">
-						<a href="contact.html" class="fontsize"><span>联系方式</span></a></li>
+					<li><a href="contact.html" class="fontsize"><span>联系方式</span></a></li>
 
 				</ul>
 			</nav>
@@ -91,38 +96,29 @@
 				<p>长期从事核电压力容器、汽车强度耐久方面的工作，熟悉ASME压力容器规范、整车轻量化设计方法。</p>
 				<p>擅长ANSYS、Nastran等固体力学分析相关软件，及Fluent和CFX等流体力学相关软件。</p>
 				<p>具有较强的编程和软件二次开发能力，曾编写转子动力学、结构力学的有限元和边界元的Fortran程序和整车强度耐久相关的Python程序。</p>
+
 		  </div>
 		</article>
+                
+		
 			<div id="promotion" class="right">
             	<img src="img/photo.jpg" alt="Photo" />
             </div>
 		</div>
 	  </section>
 
+      <section>
+      	<!-- <div id="profile" class="right"> -->
 
-					<form id="contact-form" class="left" />
-						<div>
-							<input type="text" name="name" id="name" placeholder="Your name" />
-							<input type="text" name="email" id="email" placeholder="E-mail" />
-							<textarea name="msg" id="msg" placeholder="Message" spellcheck="false"></textarea>
-							<button type="submit" class="button" name="send" id="send"><span>Send message</span></button>
-						</div>
-					</form>
-					<div class="vcard left">
-						<h3>地址</h3>
-						<p>上海市 浦东新区 龙东大道6333号</p>
-						<p>QQ:    51046438</p>
-
-						<p>个人网址</p><a class="url" href="#">www.wangyujin.com</a>
-						<p>我的邮箱</p><a class="e-mail" href="mailto:chaos1984@163.com">chaos1984@163.com</a>						
-					</div>
-				</div>
-
-
-
-      <!-- TemplateEndEditable --></section>
+      	
+        <!-- TemplateBeginEditable name="main" -->
+        <div  class="container1">
+        	<h1>The study on the shrink-fit multi-ring flywheel with fall-off function</h1>
+        	<h2> <b>ABSTRACT</b>:Structural integrity of the flywheel of reactor coolant pump is important for safe operation of a nuclear power plant. A shrink-fit multi-ring flywheel is designed with a fall-off function, i.e., it will separate from the shaft at a designed fall-off rotation speed, which is determined by the assembly process and the gravity. However, the two factors are ignored in the analytical method based on the Lame’s equation. In this work, we conducted fall-off experiments to analyze the two factors and used the experimental data to verify the validity of the analytical method and the finite element method (FEM). The results show that FEM performs better than the analytical method in designing the falloff function of the flywheel, though FEM cannot successfully predict the strain variation with the rotational speed.</h2>
+   		</div>
+      <!-- TemplateEndEditable -->
+  		</section>
 		<!-- ===================================== START FOOTER ===================================== -->
-</div>
 </div>
 <script>
 Cufon.now();
