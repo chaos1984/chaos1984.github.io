@@ -15,6 +15,35 @@
 	<script src="js/kickstart.js" type="text/javascript"></script>
 	<script src="js/custom-form-elements.js" type="text/javascript"></script>
 	<script src="js/cufon.js" type="text/javascript"></script>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+			$(function(){
+			 var slideHeight = 75; // px
+			 var defHeight = $('#wrap').height();
+			 if(defHeight >= slideHeight){
+			  $('#wrap').css('height' , slideHeight + 'px');
+			  $('#read-more').append('<a href="#">点击查看更多。。</a>');
+			  $('#read-more a').click(function(){
+			   var curHeight = $('#wrap').height();
+			   if(curHeight == slideHeight){
+			    $('#wrap').animate({
+			     height: defHeight
+			    }, "normal");
+			    $('#read-more a').html('点击隐藏');
+			    $('#gradient').fadeOut();
+			   }else{
+			    $('#wrap').animate({
+			     height: slideHeight
+			    }, "normal");
+			    $('#read-more a').html('点击查看更多。。');
+			    $('#gradient').fadeIn();
+			   }
+			   return false;
+			  });  
+			 }
+			});
+	</script>
+
 	<!--<script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>-->
 	<!--<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -45,7 +74,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="sub">
+					<li class="current sub">
 						<a href="career.html" class="fontsize">工作经验</a>
 							<ul>
 							<li class="sub">
@@ -57,7 +86,7 @@
 							</li>
 							</ul>
 					</li>
-					<li class="current sub">
+					<li class="sub">
 						<a href="education.html" class="fontsize">教育经历</a>
 					</li>
 					<li><a href="contact.html" class="fontsize"><span>联系方式</span></a></li>
@@ -88,7 +117,6 @@
 				<p>长期从事核电压力容器、汽车强度耐久方面的工作，熟悉ASME压力容器规范、整车轻量化设计方法。</p>
 				<p>擅长ANSYS、Nastran等固体力学分析相关软件，及Fluent和CFX等流体力学相关软件。</p>
 				<p>具有较强的编程和软件二次开发能力，曾编写转子动力学、结构力学的有限元和边界元的Fortran程序和整车强度耐久相关的Python程序。</p>
-
 		  </div>
 		</article>
                 
@@ -99,13 +127,37 @@
 		</div>
 	  </section>
 			<div id="content" class="cv left">
-				<h3>教育经历</h3>
+				<h3>项目经验</h3>
 				<ul class="top-border">
-					<li><span class="years">2010-2016</span> <span class="desc">上海交通大学 机械与动力工程学院 机械工程专业 博士学位<br/>《核主泵飞轮间隙流场传热特性及其结构完整性研究》</span></li>
-					<li><span class="years">2007-2010</span> <span class="desc">河南科技大学 机电工程学院 机械制造及其自动化专业 硕士学位<br/>《基于网格技术的数控机床性能分析研究及应用》</span></li>
-					<li><span class="years">2005-2007</span> <span class="desc">河南科技大学 机电工程学院 机械制造及其自动化专业 学士学位</span></li>
+					<li> <span class="years">2010-2013</span> <span class="desc"> 973项目“核主泵制造的关键科学问题”</span>
+						<p><br/><br/>该项目为国家973项目，围绕第三代核电站主泵结构设计中存在的科学问题立的项。其中，我负责的是该项目的子课题2转子--飞轮结构完整性和动力特性的研究。包括两部分内容，一是转子动力特性分析（转子动力学），另一部分时基于响应面法的飞轮过盈量优化算法的研究。<br/>相关技术：Fortran 和Matlab/Simulink编写转子动力学分析平台，和ANSYS 和Isight优化分析软件。</p>
+					</li>
+					<li> <span class="years">2011-2013</span><span class="desc">上海市经委 “核主泵结构强度分析及评定方法的研究”</span>
+						<p><br/><br/>针对核主泵振动特性的研究放的探索，以往采用基于有限元发的转子动力学对振动特性进行研究，由于采用的是梁-质量单元监理，结构上的过分简化无法保证转子动力学的可靠性和获得局部应力分布的情况。因此，本项目采用刚柔多体动力学和有限元法，相互验证对比。<br/>相关技术：多体动力学，软件ANSYS，ADAMS和Hyperview。</p>
+					</li>
+					<li> <span class="years">2013-2014</span><span class="desc">中科院上海市应用物理研究所 “高温泵结构强度分析及评定方法的研究”</span>
+						<p><br/><br/>项目描述：由xxxx负责的高温泵，其主泵工作温度在550℃~650℃，其材料会发生高温蠕变，因此会影响其主泵的安全性和功能要求。<br/>泵的结构设计进行评定，包括应变、蠕变疲劳、抗震和螺栓强度的分析。<br/>相关技术：ASME高温评定方法和蠕变分析。</p>
+					</li>
+					<li> <span class="years">2013-2014</span><span class="desc">中科院上海市应用物理研究所 “高温泵结构强度分析及评定方法的研究”</span>
+						<p><br/><br/>项目描述：由xxxx负责的高温泵，其主泵工作温度在550℃~650℃，其材料会发生高温蠕变，因此会影响其主泵的安全性和功能要求。<br/>泵的结构设计进行评定，包括应变、蠕变疲劳、抗震和螺栓强度的分析。<br/>相关技术：ASME高温评定方法和蠕变分析。</p>
+					</li>
 				</ul>
 
+
+
+    
+
+
+    核主泵结构强度分析及评定方法的研究。
+
+中科院上海市应用物理研究所
+    高温熔盐泵结构强度分析及评定方法的研究。
+
+上海电气-KSB
+    湿绕组式核主泵上飞轮间隙流场传热问题及结构完整性研究。
+
+沈鼓-大连洁能重工
+    华龙一号大惯量飞轮脱落功能的设计与分析。
 
       <!-- TemplateEndEditable --></section>
 		<!-- ===================================== START FOOTER ===================================== -->

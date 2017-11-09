@@ -215,6 +215,7 @@ button {
 	padding:0px 10px 0px 10px;
 }
 .container1 h1{
+	font-size: 20px;
 	font-family: Arial;
 	margin-bottom: 10px;
 	letter-spacing: 1px;
@@ -258,7 +259,7 @@ button {
 #content {
 	width: 535px;
 	margin-top: 0px;
-	padding: 20px 0 0 0px;
+	padding: 0px 0 0 0px;
 }
 
 #accordion {
@@ -651,7 +652,7 @@ button {
 	.cv h3 {
 		font-size: 16px;
 		font-weight: bold;
-		padding: 20px 0 15px;
+		padding: 0px 0 15px;
 	}
 	
 	.cv > ul {

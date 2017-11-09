@@ -1,29 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
 <head>
 	<title>王予津的个人网站</title>
 	<meta charset="UTF-8" />
 	<link href="css/style1.css" rel="stylesheet" media="all" />		
 	<link href="css/style.css" rel="stylesheet" media="all" />
-<!-- 	<link href="http://fonts.googleapis.com/css?family=Signika:400,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
-	<link href="http://fonts.googleapis.com/css?family=Radley:400,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" /> -->
+	<link href="http://fonts.googleapis.com/css?family=Signika:400,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Radley:400,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
 	<!--[if IE 7]><link rel="stylesheet" href="../css/ie7.css" /></script><![endif]-->
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<!-- <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" type="text/javascript"></script> -->
+	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js" type="text/javascript"></script>
 	<script src="js/prettify.js" type="text/javascript"></script>
 	<script src="js/kickstart.js" type="text/javascript"></script>
 	<script src="js/custom-form-elements.js" type="text/javascript"></script>
 	<script src="js/cufon.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		function defaulIframePageHeight() {
-		    var ifm = document.getElementById("defaulIframePage");
-		    var subWeb = document.frames ? document.frames["defaulIframePage"].document : ifm.contentDocument;
-		    if (ifm != null && subWeb != null) {
-		        ifm.height = subWeb.body.scrollHeight;
-		    	}
-		}
-	</script>
 	<!--<script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>-->
 	<!--<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
@@ -36,24 +27,25 @@
 					<li class="sub">
 						<a href="index.html" class="fontsize">我的主页</a>
 					</li>
-					<li class="current sub">
+					<li class="sub">
 						<a href="fluid.html" class="fontsize">学术研究</a>
 						<ul>
 							<li class="sub">
-								<a href="fluid.html">流体力学</a>					
+								<a href="fluid.html">流体力学</a>								
 							</li>
+
 							<li class="sub">
-								<a href="solid.html">固体力学</a>						
-							</li>
+								<a href="solid.html">固体力学</a>
+							</li>	
 							<li class="sub">
 								<a href="dynamic.html">转子动力学</a>				
 							</li>
 							<li class="sub">
 								<a href="optimization.html">优化设计</a>			
-							</li>	
+							</li>
 						</ul>
 					</li>
-					<li class="sub">
+					<li class="current sub">
 						<a href="career.html" class="fontsize">工作经验</a>
 							<ul>
 							<li class="sub">
@@ -96,7 +88,6 @@
 				<p>长期从事核电压力容器、汽车强度耐久方面的工作，熟悉ASME压力容器规范、整车轻量化设计方法。</p>
 				<p>擅长ANSYS、Nastran等固体力学分析相关软件，及Fluent和CFX等流体力学相关软件。</p>
 				<p>具有较强的编程和软件二次开发能力，曾编写转子动力学、结构力学的有限元和边界元的Fortran程序和整车强度耐久相关的Python程序。</p>
-
 		  </div>
 		</article>
                 
@@ -106,19 +97,21 @@
             </div>
 		</div>
 	  </section>
-
-      <section>
-      	<!-- <div id="profile" class="right"> -->
-
-      	
-        <!-- TemplateBeginEditable name="main" -->
-        <div  class="container1">
-        	<h1>The study on the shrink-fit multi-ring flywheel with fall-off function</h1>
-        	<h2> <b>ABSTRACT</b>:Structural integrity of the flywheel of reactor coolant pump is important for safe operation of a nuclear power plant. A shrink-fit multi-ring flywheel is designed with a fall-off function, i.e., it will separate from the shaft at a designed fall-off rotation speed, which is determined by the assembly process and the gravity. However, the two factors are ignored in the analytical method based on the Lame’s equation. In this work, we conducted fall-off experiments to analyze the two factors and used the experimental data to verify the validity of the analytical method and the finite element method (FEM). The results show that FEM performs better than the analytical method in designing the falloff function of the flywheel, though FEM cannot successfully predict the strain variation with the rotational speed.</h2>
-   		</div>
-      <!-- TemplateEndEditable -->
-  		</section>
+			<div id="content" class="cv left">
+				<h3>工作经验</h3>
+				<ul class="top-border">
+					<li><span class="years">2016-2017</span> <span class="desc">上海海马汽车研发有限公司 强度耐久工程师</span>
+						<p> <br/><br/>a. 整车优化平台的搭建——多学科优化问题搭建基于ISIGHT的整车刚度分析(NASTRAN)和碰撞分析(DYNA的优化平台，完成整车轻量化项目，通过结构、材料及厚度的优化，整车轻量化系数由4.3降低到3.6。独立开发的关键技术：DYNA文件nodout的自动后处理程序。<br/><br/> b.整车外敷盖件抗凹分析——凹陷最大点位置基于机器学习的回归预测方法，对外敷该机的最大位置进行预测，减少人为经验引起的凹陷最大点的误判，提高工作效率和准确性。独立开发的关键技术：基于Python及Scikit-learn函数库，编写了基于机器学习的凹陷危险点预测程序，该程序可以使用线性回归、岭回归、、向量机、决策树等技术对危险点进行预测。</p>
+					</li>
+				</ul>
+				<h3>实习经验</h3>
+				<ul class="top-border">
+					<li><span class="years">2013.6~9</span> <span class="desc">SI Associates. Inc(美国·圣何塞) <br/>《赴美参与中核破前漏项目(LBB)，接受美国SI公司为期3个月的培训。</span></li>
+					<li><span class="years">2013.12</span> <span class="desc">海基科技（上海）<br/>讲解核泵结构强度及抗震分析的ANSYS分析方法</span></li>
+				</ul>
+      <!-- TemplateEndEditable --></section>
 		<!-- ===================================== START FOOTER ===================================== -->
+</div>
 </div>
 <script>
 Cufon.now();
