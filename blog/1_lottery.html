@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彩票中奖概率计算</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li></li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <p></p><div class="toc"><h3>彩票中奖概率计算</h3><ul><li><a href="#0_1">0.基本排列组合算法</a></li><li><a href="#1_16">1.双色球彩票研究</a></li><ul><li><a href="#11__17">1.1 玩法</a></li><li><a href="#12__29">1.2 中奖概率</a></li><li><a href="#13__78">1.3 中奖期望</a></li><ul><li><a href="#131_1_79">1.3.1 奖金&lt;1亿</a></li><li><a href="#132_1_85">1.3.2 奖金&gt;1亿</a></li></ul></ul><li><a href="#23D_92">2.3D彩票研究</a></li><ul><li><a href="#21__93">2.1 玩法</a></li><li><a href="#22_95">2.2单注期望</a></li></ul><li><a href="#37_107">3.7乐彩票研究</a></li><ul><li><a href="#31__108">3.1 玩法</a></li><li><a href="#32_143">3.2.单注概率</a></li><li><a href="#33_184">3.3单注期望</a></li></ul><li><a href="#4_192">4.七星彩</a></li><ul><li><a href="#41_193">4.1玩法</a></li><li><a href="#42_217">4.2单注概率</a></li><li><a href="#43_261">4.3单注期望</a></li></ul><li><a href="#5_269">5.大乐透</a></li><ul><li><a href="#51_270">5.1玩法</a></li><li><a href="#52_298">5.2中奖概率</a></li><li><a href="#53_341">5.3中奖期望</a></li></ul><li><a href="#6155_357">6.15选5</a></li><ul><li><a href="#61_358">6.1玩法</a></li><li><a href="#62__367">6.2 中奖概率</a></li><li><a href="#63__379">6.3 中奖期望</a></li></ul><li><a href="#7_387">7.新快三</a></li><ul><li><a href="#71__388">7.1 玩法</a></li><li><a href="#72_392">7.2中奖概率</a></li><li><a href="#73_426">7.3中奖期望</a></li></ul></ul></div><p></p>
+<h1><a id="0_1"></a>0.基本排列组合算法</h1>
+<pre><code class="prism language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+<span class="token keyword">def</span> <span class="token function">A_n_m</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">float</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>math<span class="token punctuation">.</span>factorial<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token builtin">float</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>math<span class="token punctuation">.</span>factorial<span class="token punctuation">(</span>n<span class="token operator">-</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">C_n_m</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span>  A_n_m<span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token operator">/</span>np<span class="token punctuation">.</span>math<span class="token punctuation">.</span>factorial<span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">Prob</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span>  C_n_m<span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span>t<span class="token operator">-</span>n<span class="token punctuation">,</span>n<span class="token operator">-</span>m<span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span>t<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+</code></pre>
+<h1><a id="1_16"></a>1.双色球彩票研究</h1>
+<h2><a id="11__17"></a>1.1 玩法</h2>
+<p>红色球 33选6，蓝色球 16选1</p>
+<pre><code>奖金                      中奖方法 
+一等奖             &lt;1亿 70%高等奖+奖金池 单注封顶500w 6+1
+                   &gt;1亿 50%高等奖+奖金池+%20 单注封顶1000w          
+二等奖： 30%高等奖 6+0
+三等奖： 3000 5+1
+四等奖： 200 5+0，4+1
+五等奖： 10 4+0，3+1
+六等奖： 5 2+1,1+1,0+1
+</code></pre>
+<h2><a id="12__29"></a>1.2 中奖概率</h2>
+<pre><code class="prism language-python">
+<span class="token comment">#一等奖 6+1</span>
+P_1 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'一等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_1<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#二等奖 6+0</span>
+P_2 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'二等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_2<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#三等奖 5+1 </span>
+
+P_3 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'三等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_3<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#四等奖 5+0 ，4+1 </span>
+P_4 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+P_4 <span class="token operator">+=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'四等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_4<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#五等奖 4+0 ，3+1 </span>
+
+P_5 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+P_5 <span class="token operator">+=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'五等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_5<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#六等奖 2+1,1+1,0+1</span>
+
+P_6 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+P_6 <span class="token operator">+=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+P_6 <span class="token operator">+=</span> C_n_m<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">/</span>  C_n_m<span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'六等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_6<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'总的中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P_1<span class="token operator">+</span>P_2<span class="token operator">+</span>P_3<span class="token operator">+</span>P_4<span class="token operator">+</span>P_5<span class="token operator">+</span>P_6<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>一等奖中奖概率（百万人）：      0.06<br>
+二等奖中奖概率（百万人）：      0.85<br>
+三等奖中奖概率（百万人）：      9.14<br>
+四等奖中奖概率（百万人）：    434.23<br>
+五等奖中奖概率（百万人）：   7757.71<br>
+六等奖中奖概率（百万人）：  58892.55<br>
+总的中奖概率（百万人）：  67094.53</p>
+</blockquote>
+<h2><a id="13__78"></a>1.3 中奖期望</h2>
+<h3><a id="131_1_79"></a>1.3.1 奖金&lt;1亿</h3>
+<pre><code class="prism language-python">E1 <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">5000000</span> <span class="token operator">+</span> P_2<span class="token operator">*</span><span class="token number">150000</span> <span class="token operator">+</span> P_3<span class="token operator">*</span><span class="token number">3000</span> <span class="token operator">+</span> P_4<span class="token operator">*</span><span class="token number">200</span> <span class="token operator">+</span> P_5<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> P_6<span class="token operator">*</span><span class="token number">5</span>
+<span class="token keyword">print</span> <span class="token string">'&lt;1亿元时，单注期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E1<span class="token punctuation">)</span>
+</code></pre>
+<p>&lt;1亿元时，单注期望：0.895428</p>
+<h3><a id="132_1_85"></a>1.3.2 奖金&gt;1亿</h3>
+<pre><code class="prism language-python">E1 <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">10000000</span> <span class="token operator">+</span> P_2<span class="token operator">*</span><span class="token number">300000</span> <span class="token operator">+</span> P_3<span class="token operator">*</span><span class="token number">3000</span> <span class="token operator">+</span> P_4<span class="token operator">*</span><span class="token number">200</span> <span class="token operator">+</span> P_5<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> P_6<span class="token operator">*</span><span class="token number">5</span>
+<span class="token keyword">print</span> <span class="token string">'&gt;1亿元时，单注期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E1<span class="token punctuation">)</span>
+</code></pre>
+<p>&gt;1亿元时，单注期望：1.304545</p>
+<h1><a id="23D_92"></a>2.3D彩票研究</h1>
+<h2><a id="21__93"></a>2.1 玩法</h2>
+<p>竟猜三位开奖号码，即百位、十位和个位，且顺序一致。 奖金1040元</p>
+<h2><a id="22_95"></a>2.2单注期望</h2>
+<pre><code class="prism language-python"><span class="token comment">#获奖概率</span>
+P <span class="token operator">=</span> <span class="token number">0.001</span><span class="token punctuation">;</span>
+<span class="token comment">#期望</span>
+E <span class="token operator">=</span> P <span class="token operator">*</span> <span class="token number">1040</span>
+<span class="token keyword">print</span> <span class="token string">'总的中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'3D 单注期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>总的中奖概率（百万人）：   1000.00<br>
+3D 单注期望：1.040000</p>
+</blockquote>
+<h1><a id="37_107"></a>3.7乐彩票研究</h1>
+<h2><a id="31__108"></a>3.1 玩法</h2>
+<p>七乐彩设奖奖金为销售总额的50%，其中当期奖金为销售总额的49%，调节基金为销售总额的1%。</p>
+<p>七乐彩当期奖金设七个奖等，一至三等奖为高奖等，四至七等奖为低奖等。高奖等采用浮动设奖，低奖等采用固定设奖。当期奖金减去当期低奖等奖金为当期高奖等奖金，具体设奖如下：</p>
+<p>一等奖：奖金总额为当期高奖等奖金的70%，最高500w；</p>
+<p>二等奖：奖金总额为当期高奖等奖金的10%；</p>
+<p>三等奖：奖金总额为当期高奖等奖金的20%；</p>
+<p>四等奖：单注奖金额固定为200元；</p>
+<p>五等奖：单注奖金额固定为50元；</p>
+<p>六等奖：单注奖金额固定为10元；</p>
+<p>七等奖：单注奖金额固定为5元。</p>
+<p>1.玩法<br>
+30选7，6+1</p>
+<p>一等奖：投注号码与当期开奖号码中7个基本号码完全相同（顺序不限，下同）；</p>
+<p>二等奖：投注号码与当期开奖号码中任意6个基本号码及特别号码相同；</p>
+<p>三等奖：投注号码与当期开奖号码中任意6个基本号码相同；</p>
+<p>四等奖：投注号码与当期开奖号码中任意5个基本号码及特别号码相同；</p>
+<p>五等奖：投注号码与当期开奖号码中任意5个基本号码相同；</p>
+<p>六等奖：投注号码与当期开奖号码中任意4个基本号码及特别号码相同；</p>
+<p>七等奖：投注号码与开奖号码中任意4个基本号码相同。</p>
+<h2><a id="32_143"></a>3.2.单注概率</h2>
+<pre><code class="prism language-python"><span class="token comment">#一等奖</span>
+P_1 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> 
+<span class="token keyword">print</span> <span class="token string">'一等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_1<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#二等奖</span>
+P_2 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'二等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_2<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#三等奖</span>
+P_3 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span> C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> 
+<span class="token keyword">print</span> <span class="token string">'三等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_3<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#四等奖</span>
+P_4 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'四等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_4<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#五等奖</span>
+P_5 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'五等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_5<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#六等奖</span>
+P_6 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'六等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_6<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#七等奖</span>
+P_7 <span class="token operator">=</span> C_n_m<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'七等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_7<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'总概率（百万人）：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P_1<span class="token operator">+</span>P_2<span class="token operator">+</span>P_3<span class="token operator">+</span>P_4<span class="token operator">+</span>P_5<span class="token operator">+</span>P_6<span class="token operator">+</span>P_7<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>一等奖中奖概率（百万人）：      0.49<br>
+二等奖中奖概率（百万人）：      3.44<br>
+三等奖中奖概率（百万人）：     75.65<br>
+四等奖中奖概率（百万人）：    226.94<br>
+五等奖中奖概率（百万人）：   2382.85<br>
+六等奖中奖概率（百万人）：   3971.41<br>
+七等奖中奖概率（百万人）：  26476.08<br>
+总概率（百万人）：33136.850378</p>
+</blockquote>
+<h2><a id="33_184"></a>3.3单注期望</h2>
+<p>2017096期的中奖结果 一等奖 一注870305 二等奖22605 三等奖2210</p>
+<pre><code class="prism language-python">E <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">870305</span> <span class="token operator">+</span> P_2<span class="token operator">*</span><span class="token number">22605</span> <span class="token operator">+</span> P_3<span class="token operator">*</span><span class="token number">2210</span> <span class="token operator">+</span> P_4<span class="token operator">*</span><span class="token number">200</span> <span class="token operator">+</span> P_5<span class="token operator">*</span><span class="token number">50</span> <span class="token operator">+</span>P_6<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> P_7<span class="token operator">*</span><span class="token number">5</span>
+<span class="token keyword">print</span> <span class="token string">'3D 单注期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E
+</code></pre>
+<blockquote>
+<p>3D 单注期望：1.009028</p>
+</blockquote>
+<h1><a id="4_192"></a>4.七星彩</h1>
+<h2><a id="41_193"></a>4.1玩法</h2>
+<p>一等奖：奖金总额为当期奖金额减去固定奖总额后的90%，以及奖池资金和调节基金转入部分；</p>
+<p>二等奖：奖金总额为当期奖金额减去固定奖总额后的10%；</p>
+<p>三等奖：单注奖金固定为1800元；</p>
+<p>四等奖：单注奖金固定为300元；</p>
+<p>五等奖：单注奖金固定为20元；</p>
+<p>六等奖：单注奖金固定为5元。<br>
+一等奖：投注号码与开奖号码全部相符且排列一致，即中奖；</p>
+<p>二等奖：投注号码有连续6位号码与开奖号码相同位置的连续6位号码相同，即中奖；</p>
+<p>三等奖：投注号码有连续5位号码与开奖号码相同位置的连续5位号码相同，即中奖；</p>
+<p>四等奖：投注号码有连续4位号码与开奖号码相同位置的连续4位号码相同，即中奖；</p>
+<p>五等奖：投注号码有连续3位号码与开奖号码相同位置的连续3位号码相同，即中奖；</p>
+<p>六等奖：投注号码有连续2位号码与开奖号码相同位置的连续2位号码相同，即中奖。</p>
+<h2><a id="42_217"></a>4.2单注概率</h2>
+<pre><code class="prism language-python"><span class="token comment">#一等奖</span>
+P_1 <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'一等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_1<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#二等奖</span>
+P_2 <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'二等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_2<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#三等奖</span>
+P_3 <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_3 <span class="token operator">+=</span> C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'三等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_3<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#四等奖</span>
+P_4 <span class="token operator">=</span>  <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_4 <span class="token operator">+=</span>  C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'四等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_4<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#五等奖</span>
+P_5 <span class="token operator">=</span>  <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_5 <span class="token operator">+=</span>  C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_5 <span class="token operator">+=</span>  <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+P_5 <span class="token operator">-=</span>  <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'五等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_5<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#六等奖</span>
+P_6 <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_6 <span class="token operator">+=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">pow</span><span class="token punctuation">(</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>C_n_m<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>C_n_m<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_6 <span class="token operator">-=</span> <span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>P_1
+<span class="token keyword">print</span> <span class="token string">'六等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_6<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'总概率（百万人）：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P_1<span class="token operator">+</span>P_2<span class="token operator">+</span>P_3<span class="token operator">+</span>P_4<span class="token operator">+</span>P_5<span class="token operator">+</span>P_6<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>一等奖中奖概率（百万人）：      0.10<br>
+二等奖中奖概率（百万人）：      1.80<br>
+三等奖中奖概率（百万人）：     26.10<br>
+四等奖中奖概率（百万人）：    342.00<br>
+五等奖中奖概率（百万人）：   4229.10<br>
+六等奖中奖概率（百万人）：  50398.00<br>
+总概率（百万人）：54997.100000</p>
+</blockquote>
+<h2><a id="43_261"></a>4.3单注期望</h2>
+<p>2017096期的中奖结果 一等奖 一注3965569 二等奖4508</p>
+<pre><code class="prism language-python">E <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">3965569</span> <span class="token operator">+</span> P_2<span class="token operator">*</span><span class="token number">45081</span> <span class="token operator">+</span> P_3<span class="token operator">*</span><span class="token number">1800</span> <span class="token operator">+</span> P_4<span class="token operator">*</span><span class="token number">300</span> <span class="token operator">+</span> P_5<span class="token operator">*</span><span class="token number">20</span> <span class="token operator">+</span>P_6<span class="token operator">*</span><span class="token number">5</span>
+<span class="token keyword">print</span> <span class="token string">'3D 单注期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>3D 单注期望：0.963855</p>
+</blockquote>
+<h1><a id="5_269"></a>5.大乐透</h1>
+<h2><a id="51_270"></a>5.1玩法</h2>
+<p>35选5+12选2</p>
+<p>一等奖：投注号码与当期开奖号码全部相同(顺序不限，下同)，即中奖；</p>
+<p>二等奖：投注号码与当期开奖号码中的5个前区号码及任意1个后区号码相同，即中奖；</p>
+<p>三等奖：投注号码与当期开奖号码中的5个前区号码相同，或者任意4个前区号码及2个后区号码相同，即中奖；</p>
+<p>四等奖：投注号码与当期开奖号码中的任意4个前区号码及任意1个后区号码相同，或者任意3个前区号码及2个后区号码相同，即中奖；</p>
+<p>五等奖：投注号码与当期开奖号码中的任意4个前区号码相同，或者任意3个前区号码及1个后区号码相同，或者任意2个前区号码及2个后区号码相同，即中奖；</p>
+<p>六等奖：投注号码与当期开奖号码中的3个前区号码相同，或者任意1个前区号码及2个后区号码相同，或者任意2个前区号码及任意1个后区号码相同，或者2个后区号码相同，即中奖。</p>
+<p>2 奖金<br>
+一等奖：当奖池资金低于1亿元时，奖金总额为当期奖金额减去固定奖总额后的75%与奖池中累积的奖金之和，单注奖金按注均分，单注最高限额封顶500万元。当奖池资金高于1亿元(含)且低于3亿元时，奖金总额包括两部分，一部分为当期奖金额减去固定奖总额后的58%与奖池中累积的奖金之和，单注奖金按注均分，单注最高限额封顶500万元；另一部分为当期奖金额减去固定奖总额后的17%，单注奖金按注均分，单注最高限额封顶500万元。当奖池资金高于3亿元（含）时，奖金总额包括两部分，第一部分为当期奖金额减去固定奖总额后的42%与奖池中累积的奖金之和，单注奖金按注均分，单注最高限额封顶500万元；第二部分为当期奖金额减去固定奖总额后的33%，单注奖金按注均分，单注最高限额封顶500万元。</p>
+<p>二等奖：奖金总额为当期奖金额减去固定奖总额后的18%，单注奖金按注均分，单注最高限额封顶500万元。</p>
+<p>三等奖：奖金总额为当期奖金额减去固定奖总额后的7%，单注奖金按注均分，单注最高限额封顶500万元。</p>
+<p>四等奖：单注奖金固定为200元。</p>
+<p>五等奖：单注奖金固定为10元。</p>
+<p>六等奖：单注奖金固定为5元。</p>
+<h2><a id="52_298"></a>5.2中奖概率</h2>
+<pre><code class="prism language-python"><span class="token comment">#一等奖 5+2</span>
+P_1 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'一等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_1<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#二等奖 5+1</span>
+P_2 <span class="token operator">=</span>  Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'二等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_2<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#三等奖 5+0 ,4+2</span>
+P_3 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+P_3 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'三等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_3<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#四等奖 4+1,3+2</span>
+P_4 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_4 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'四等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_4<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#五等奖 4+0，3+1, 2+2</span>
+P_5 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+P_5 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_5 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'五等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_5<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token comment">#六等奖 3+0，1+2, 2+1， 0+2</span>
+P_6 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+P_6 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+P_6 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+P_6 <span class="token operator">+=</span> Prob<span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span>Prob<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'五等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_6<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'总概率（百万人）：%.3f'</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P_1<span class="token operator">+</span>P_2<span class="token operator">+</span>P_3<span class="token operator">+</span>P_4<span class="token operator">+</span>P_5<span class="token operator">+</span>P_6<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>一等奖中奖概率（百万人）：      0.05<br>
+二等奖中奖概率（百万人）：      0.93<br>
+三等奖中奖概率（百万人）：      7.05<br>
+四等奖中奖概率（百万人）：    343.05<br>
+五等奖中奖概率（百万人）：   6270.50<br>
+五等奖中奖概率（百万人）：  60081.13<br>
+总概率（百万人）：66702.707</p>
+</blockquote>
+<h2><a id="53_341"></a>5.3中奖期望</h2>
+<p>17096 一等奖 10000000 二等奖 107135 三等奖 6408 (未追加)</p>
+<pre><code>E = P_1*10000000 + P_2*107135 +P_3*6408 +P_4*200+ P_5*10 +P_6*5
+print '大乐透期望：%f' %(E)
+</code></pre>
+<blockquote>
+<p>大乐透期望：1.043616</p>
+</blockquote>
+<p>一等奖 10000000 二等奖 107135+64281 三等奖 6408+3844 (追加)</p>
+<pre><code class="prism language-python">E <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">10000000</span> <span class="token operator">+</span> P_2<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">107135</span><span class="token operator">+</span><span class="token number">64281</span><span class="token punctuation">)</span> <span class="token operator">+</span>P_3<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">6408</span><span class="token operator">+</span><span class="token number">3844</span><span class="token punctuation">)</span> <span class="token operator">+</span>P_4<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token operator">+</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token operator">+</span> P_5<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">+</span>P_6<span class="token operator">*</span><span class="token number">5</span>
+<span class="token keyword">print</span> <span class="token string">'大乐透期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>大乐透期望：1.196368</p>
+</blockquote>
+<h1><a id="6155_357"></a>6.15选5</h1>
+<h2><a id="61_358"></a>6.1玩法</h2>
+<p>特等奖：单注投注号码与当期5个开奖号码全部相同，且至少包含4个连续号码（中奖号码顺序不论，并可以同一等奖视为兼中）。</p>
+<p>一等奖：单注投注号码与当期5个开奖号码全部相同，若有4个连续号码则同特等奖兼中。</p>
+<p>二等奖：单注投注号码与当期开奖号码中任意4个号码相同，不得与以上奖等兼中。</p>
+<p>2 奖金<br>
+浮动奖金 二等奖 10元</p>
+<h2><a id="62__367"></a>6.2 中奖概率</h2>
+<pre><code class="prism language-python"><span class="token comment">#一等奖或特等奖</span>
+P_1 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'一等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_1<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+P_2 <span class="token operator">=</span> Prob<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'二等奖中奖概率（百万人）：%10.2f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>P_2<span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">'总概率（百万人）：%.3f'</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P_1<span class="token operator">+</span>P_2<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>一等奖中奖概率（百万人）：    333.00<br>
+二等奖中奖概率（百万人）：  16650.02<br>
+总概率（百万人）：16983.017</p>
+</blockquote>
+<h2><a id="63__379"></a>6.3 中奖期望</h2>
+<p>浙江 2017220 一等奖奖金 3045 二等奖奖金 1</p>
+<pre><code class="prism language-python">E <span class="token operator">=</span> P_1<span class="token operator">*</span><span class="token number">3045</span><span class="token operator">+</span>P_2<span class="token operator">*</span><span class="token number">10</span>
+<span class="token keyword">print</span> <span class="token string">'15选5期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>15选5期望：1.180486</p>
+</blockquote>
+<h1><a id="7_387"></a>7.新快三</h1>
+<h2><a id="71__388"></a>7.1 玩法</h2>
+<p>三个数（0~6）之和（0 ~ 18）分布。<br>
+奖金：<br>
+3,18 :240 4,17 :80 5,16 :40 6,15 :25 7,14 :16 8,13 :12 9,12 :10 10,11:9</p>
+<h2><a id="72_392"></a>7.2中奖概率</h2>
+<pre><code class="prism language-python">P <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    P<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token builtin">sum</span> <span class="token operator">=</span> i<span class="token operator">+</span>j<span class="token operator">+</span>k
+            P<span class="token punctuation">[</span><span class="token builtin">sum</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>  
+P_total <span class="token operator">=</span> <span class="token number">0</span>
+PP<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    PP<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token string">'和数为 %d 的概率(百万人)： %f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">,</span>PP<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1000000</span><span class="token punctuation">)</span>
+    P_total <span class="token operator">+=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>和数为 3 的概率(百万人)： 4629.629630<br>
+和数为 4 的概率(百万人)： 13888.888889<br>
+和数为 5 的概率(百万人)： 27777.777778<br>
+和数为 6 的概率(百万人)： 46296.296296<br>
+和数为 7 的概率(百万人)： 69444.444444<br>
+和数为 8 的概率(百万人)： 97222.222222<br>
+和数为 9 的概率(百万人)： 115740.740741<br>
+和数为 10 的概率(百万人)： 125000.000000<br>
+和数为 11 的概率(百万人)： 125000.000000<br>
+和数为 12 的概率(百万人)： 115740.740741<br>
+和数为 13 的概率(百万人)： 97222.222222<br>
+和数为 14 的概率(百万人)： 69444.444444<br>
+和数为 15 的概率(百万人)： 46296.296296<br>
+和数为 16 的概率(百万人)： 27777.777778<br>
+和数为 17 的概率(百万人)： 13888.888889<br>
+和数为 18 的概率(百万人)： 4629.629630</p>
+</blockquote>
+<h2><a id="73_426"></a>7.3中奖期望</h2>
+<pre><code class="prism language-python">E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">240</span>
+<span class="token keyword">print</span> <span class="token string">'和数为3或18的期望：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">80</span>
+<span class="token keyword">print</span> <span class="token string">'和数为4或17：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">40</span>
+<span class="token keyword">print</span> <span class="token string">'和数为5或16：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">25</span>
+<span class="token keyword">print</span> <span class="token string">'和数为6或15：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">16</span>
+<span class="token keyword">print</span> <span class="token string">'和数为7或14：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">12</span>
+<span class="token keyword">print</span> <span class="token string">'和数为8或13：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">10</span>
+<span class="token keyword">print</span> <span class="token string">'和数为9或12：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+E <span class="token operator">=</span> PP<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">9</span>
+<span class="token keyword">print</span> <span class="token string">'和数为10或11：%f'</span> <span class="token operator">%</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>和数为3或18的期望：1.111111<br>
+和数为4或17：1.111111<br>
+和数为5或16：1.111111<br>
+和数为6或15：1.157407<br>
+和数为7或14：1.111111<br>
+和数为8或13：1.166667<br>
+和数为9或12：1.157407<br>
+和数为10或11：1.125000</p>
+</blockquote>
+
+    </div>
+  </div>
+</body>
+
+</html>
