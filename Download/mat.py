@@ -7,8 +7,6 @@ import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import scipy as sp
-from scipy.optimize import curve_fit
 import scipy.signal as signal
 
 #def fun(eps,a0,a1,a2,a3):
@@ -25,18 +23,19 @@ def MAT89LCSS(fdfile,A,l0):
     EngStrain = x/l0
     EngStress = y/A
     EngStressFilt =  pd.Series(signal.medfilt(EngStress,201))
-    PeakStress = max(EngStressFilt)
-    PeakStrain = EngStrain[EngStressFilt.idxmax()]
-    print "PeakStress:%f\tPeakStrain:%f\t Elastic modulus:%f" %(PeakStress,PeakStrain,PeakStress/PeakStrain)
+
     plt.figure(1)
     plt.grid("on")
     plt.title("Engineering Strain VS. Engineering Stress Curve")
     plt.xlabel("Engineering Strain[-]")
     plt.ylabel("Engineering Stress[GPa]")
-#    plt.plot(PeakStrain,PeakStress,'p')
-    plt.plot(EngStrain,EngStress)
+    plt.plot(EngStrain,EngStressFilt)
 #    plt.plot(EngStrain,EngStressFilt,'--')
     plt.legend(["Strain Rate 0.001/ms","Strain Rate 0.01/ms","Strain Rate 0.1/ms","Strain Rate 1/ms"])
+    PeakStress = max(EngStressFilt[:400])
+    PeakStrain = EngStrain[EngStressFilt[:400].idxmax()]
+    plt.scatter(PeakStrain,PeakStress, marker='o')
+    print "PeakStress:%f\tPeakStrain:%f\t Elastic modulus:%f" %(PeakStress,PeakStrain,PeakStress/PeakStrain)
     TrueStrain =  np.log(1+EngStrain)
     TrueStress = EngStressFilt*(1+EngStrain)
     plt.figure(2)
@@ -94,22 +93,24 @@ def MAT24LCSS(x,y,p,length=2.0,yieldpoint=0.02,Ymould_user=0,Peak=[0,0],straintu
     return x_eps_mod,y_eps_mod
 
 
+
 if __name__ == '__main__':
-    Ymould_user = 1.5
+    Ymould_user = 0.6
     yieldpoint= 0.1
-    pointnum = 80
-    strainturnlist=[1.2,1.2,1.2,0.75];scaleturnlist=[0.09,0.09,0.085,0.060];curvescalelist = [1,1.,1.03,1.03]
+    scale = [1,1,1,1,1]
+    strainturnlist=[1.7,1.9,1.9,2,4];scaleturnlist=[0.04,0.06,0.08,0.04];curvescalelist = [1.,1.,1.0,1.]
     A = 30; l0 = 10
     FDfile = ["test10.txt","test100.txt","test1000.txt","test10000.txt"]
-    strainrange = 1.3;extend = 0.5;scaleextend=0.08;alignstrain =1.45
-    ratio = 1
+    strainrange = 1.9;extend = 0.8;scaleextend=0.1;alignstrain =10
+    ratio =1
     fout = open("Curve.key",'w')
     strain_rate = [-6.907,-4.605,-2.302,0]
     curvenum = 2350
+    p0 = 1,1,1,1,1 
     fout.write('*KEYWORD\n')
     fout.write('$ Created: ' + time.strftime("%d.%m.%Y %H:%M:%S") + '\n')
-    fout.write('$ Parameters:\n$ A:%f\n$ l0:%f\n$ Fitting range:%f\n$ extend strain:%f\n$ scaleextend:%f\n$ alignstrain:%f\n' %(A,l0,strainrange,extend,scaleextend,alignstrain))
-    fout.write("$ Control List:\n$ strain turning:%s\n$ strain scaleturn:%s\n$ curvescale:%s\n" %(str(strainturnlist),str(scaleturnlist),str(curvescalelist)))
+    fout.write('$ Parameters:\n$ A:%f\n$ l0:%f\n$ yieldpoint:%f\n$ Fitting range:%f\n$ extend strain:%f\n$ scaleextend:%f\n' %(A,l0,yieldpoint,strainrange,extend,scaleextend))
+    fout.write("$ Control List:\n$ strain turning:%s\n$ strain scaleturn:%s\n$ fitting function coefficents scale:%s\n$ curvescale:%s\n" %(str(strainturnlist),str(scaleturnlist),str(scale),str(curvescalelist)))
     fout.write("*DEFINE_TABLE\n%d\n" %(curvenum))
     for i in strain_rate:
         fout.write("%f\n" %(i))    
@@ -117,7 +118,7 @@ if __name__ == '__main__':
         curvenum += 1
         strainturn = strainturnlist[index];scaleturn = scaleturnlist[index];curvescale = curvescalelist[index]
         x,y,peak = MAT89LCSS(File,A,l0) 
-        x_fit,y_fit= MAT24LCSS(x,y,p0,strainrange,yieldpoint=yieldpoint,Ymould_user=Ymould_user,Peak=peak,strainturn=strainturn,scaleturn=scaleturn,curvescale=curvescale,ratio=ratio,extend=extend,scaleextend=scaleextend,alignstrain =alignstrain,pointnum=pointnum)    
+        x_fit,y_fit = MAT24LCSS(x,y,p0,strainrange,yieldpoint=yieldpoint,Ymould_user=Ymould_user,Peak=peak,strainturn=strainturn,scaleturn=scaleturn,curvescale=curvescale,ratio=ratio,extend=extend,scaleextend=scaleextend)
         fout.write('*DEFINE_CURVE_TITLE\nRate %.5f\t%s\n' %(pow(np.e,strain_rate[index]),File))
         fout.write('$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP\n')
         fout.write('      %d         0    1.0000&scale        0.0000    0.0000\n' %(curvenum))
@@ -126,5 +127,5 @@ if __name__ == '__main__':
     fout.write("*END\n")
     fout.close()
 #    plt.plot(x_fit,y_fit-a3,'y')# Fitting cuver for dyna MAT24    
-    plt.grid('on')
+    plt.grid("on")
     plt.show()
