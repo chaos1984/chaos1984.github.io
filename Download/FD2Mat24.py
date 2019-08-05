@@ -36,6 +36,26 @@ import matplotlib.pyplot as plt
 from scipy import interpolate,optimize
 import scipy.signal as signal
 
+
+def ConditionRemove(data,condition):
+    a =[]
+    isflag = 1
+    string ="if "+ condition +":\n"
+    string +="                     for k in range(len(data)):\n   \
+                        data[k].pop(i+1)\n   \
+                  isflag = 1\n"
+    while isflag == 1:
+        a.extend(data)
+        len0 = len(a[0])
+        try:
+            for i in range(len(a[0])):
+                exec(string)
+        except:
+            if len(data[0]) == len0:
+                break
+    return data
+
+    
 def CowperSymondsFunc(x,c,p):
     rate,ES0 = x
     return ES0*(1+np.power((rate/c),1./p))
@@ -147,37 +167,16 @@ def CurveKey(A,l0,FDfile,strain_rate,curvenum,ratio,Ymould_user,yieldpoint,point
     fout.close()
 #    plt.show()
 
-def CowperSymondsCurve(File,A,l0,Ymould_user,pointnum,ratelist,x_p,y_p):
-    y_eps = []
-    x_eps = []
-    for index,value in enumerate(x):
-        if value >= yieldpoint and (value > x[index-1] or y[index]>y[index-1]):
-            x_eps.append(value - y[index]/Ymould_user)
-            y_eps.append(y[index])
-    plt.figure(3)
-    plt.plot(x_eps,y_eps,'--')
-    popt,pcov = optimize.curve_fit(CowperSymondsFunc,x_p,y_p,[0.001,0.001])
-    c = popt[0];p = popt[1]
-    print 'c:',c
-    print 'p:',p
-#    print "Cowper-Symonds Constants:\nc:%f\tp:%f\n" %(c,p)
-    x_eps_fit = np.linspace(0,x_eps[-1],pointnum)
-    for rate in ratelist:
-        plt.figure(4)
-        y_eps_fit = CowperSymondsFunc(x_eps_fit,c,p,rate=0.001)
-        plt.plot(x_eps_fit,y_eps_fit)
-    return x_eps_fit,y_eps_fit
-    
 
 if __name__ == '__main__':
-    A = 30; l0 = 10 #样件截面积，标距
+    A = 30; l0 = 30 #样件截面积，标距
     FDfile = ["test10.txt","test100.txt","test1000.txt","test10000.txt"]#力位移曲线
     strain_rate = [-6.907,-4.605,-2.302,0] #力位移曲线对应的应变率
     curvenum = 2350 #key文件中曲线的编号起始编号
     ratio = 1 #显示比例
 #################################User Define###################################
     Ymould_user = 1.5 #定义弹性模量
-    yieldpoint= 0.105 #屈服点（避开交叉区域）
+    yieldpoint= 0.100 #屈服点（避开交叉区域）
     pointnum = 80     #输出点的个数
     strainturnlist=[1.3,1.3,1.35,0.9]#指定每根曲线发生转折的应变
     scaleturnlist=[0.08,0.08,0.06,0.0450];#指定每根曲线发生转折的比例
@@ -195,13 +194,9 @@ if __name__ == '__main__':
         x,y,peak = MAT89LCSS(File,A,l0)
         y_p.append(peak[1])
         if index == 0:
-            x0 = x
-            y0 = y
-    for index,value in enumerate(x0):
-        if value >= yieldpoint and (value > x0[index-1] or y0[index]>y[index-1]):
-            x_eps.append(value - y0[index]/Ymould_user)
-            y_eps.append(y0[index])
-    popt,pcov = optimize.curve_fit(CowperSymondsFunc,[ratelist,y_eps[0]],y_p,[0.1,0.1])
+            print type(x.tolist())
+            x0,y0 = ConditionRemove([x.tolist(),y.tolist()],"(a[0][i]>=a[0][i+1] or a[1][i]>=a[1][i+1])")
+    popt,pcov = optimize.curve_fit(CowperSymondsFunc,[ratelist,y_p[0]],y_p,[1,1])
     c,p = popt
     print 'c:',c
     print 'p:',p
@@ -211,6 +206,8 @@ if __name__ == '__main__':
     plt.scatter(ratelist,y_p_fit)
 #    x_eps_fit = np.linspace(0,x.tolist()[-1],pointnum)
     plt.figure(3)
+    delta = int(len(x0)/pointnum)-1
+    print delta
     fout = open("Curve.key",'w')
     fout.write('*KEYWORD\n')
     fout.write("*DEFINE_TABLE\n%d\n" %(curvenum))
@@ -218,14 +215,14 @@ if __name__ == '__main__':
         fout.write("%f\n" %(i))    
     for rate in ratelist:
         curvenum += 1
-        y_eps_fit = CowperSymondsFunc([rate,np.array(y_eps)],c,p)
+        y_eps_fit = CowperSymondsFunc([rate,np.array(y0)],c,p)
         fout.write('*DEFINE_CURVE_TITLE\nRate %.5f\n' %(rate))
         fout.write('$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP\n')
-        fout.write('      %d         0    1.0000&   1.0000    0.0000    0.0000\n' %(curvenum))
-        for i in range(len(x_eps)):
-            fout.write("%f,%f\n" %(x_eps[i],y_eps_fit[i]))
-        plt.plot(x_eps,y_eps_fit,dashes=[2, 2, 10, 2])
+        fout.write('      %d         0    1.0000    1.0000    0.0000    0.0000\n' %(curvenum))
+        for i in range(pointnum):
+            fout.write("%f,%f\n" %(x0[i*delta],y_eps_fit[i*delta]))
+        plt.plot(x0,y_eps_fit,dashes=[2, 2, 10, 2])
     fout.write("*END\n")
-    plt.show()
+    # plt.show()
     
 #    x,y = CowperSymondsCurve(FDfile[0],A,l0,Ymould_user,80,ratelist,x_p,y_p)
