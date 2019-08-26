@@ -253,7 +253,7 @@ def DSGZ_CurveKey(Ymould_user,T,K,c1,c2,c3,c4,a,m,alpha,strainrate_list,curvenum
         fout.write('*DEFINE_CURVE_TITLE\nRate %.5f\n' %(strainrate_list[index]))
         fout.write('$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP\n')
         fout.write('      %d         0    1.0000    1.0000    0.0000    0.0000\n' %(curvenum))
-        print strainrate
+        print strainrate,T,K,c1,c2,c3,c4,a,m,alpha
         stress = stress_strain_strainrate_T(strain,strainrate,T,K,c1,c2,c3,c4,a,m,alpha)
         res_stress.append(stress)
 #        res_strain.append(strain)
@@ -266,14 +266,14 @@ def DSGZ_CurveKey(Ymould_user,T,K,c1,c2,c3,c4,a,m,alpha,strainrate_list,curvenum
     return res_strain,res_stress
     
 if __name__ == '__main__':
-    A = 30; l0 = 10 #样件截面积，标距
-    dir = r"C:\\Users\\yujin.wang\\Desktop\\DSGZ\\ht\\"
-    FDfile = ["test10.txt","test100.txt","test1000.txt","test10000.txt"]#力位移曲线
-    FDfile = [dir + i for i in FDfile]
+    # A = 30; l0 = 10 #样件截面积，标距
+    # dir = r"C:\\Users\\yujin.wang\\Desktop\\DSGZ\\ht\\"
+    # FDfile = ["test10.txt","test100.txt","test1000.txt","test10000.txt"]#力位移曲线
+    # FDfile = [dir + i for i in FDfile]
     strain_rate = [-6.907,-4.605,-2.302,0] #力位移曲线对应的应变率
     log_strain_rate = [np.power(np.e,i) for i in strain_rate]
     curvenum = 2350 #key文件中曲线的编号起始编号
-    ratio = 1 #显示比例
+    # ratio = 1 #显示比例
 #################################User Define###################################
     Ymould_user = 1.5 #定义弹性模量
     yieldpoint= 0.100 #屈服点（避开交叉区域）
@@ -325,18 +325,18 @@ if __name__ == '__main__':
     
     
     ###########################################################################
-
-    strain = [0.2,0.4,0.6];stress=[0.047,0.055,0.0622]
+    # stress=[0.047,0.055,0.0622]
+    strain = [0.2,0.4,0.6];stress=[float(      .047),float(      .055),float(      .055)]
     c1,c2 = DGSZ_c1c2(strain,stress)
-    strainrate = [1.,0.1];stress =[0.047,0.0367]
+    strainrate = [1.,0.1];stress =[float(      .047),float(      .367)]
     m = DGSZ_m(strainrate,stress)
-    T = [238.,358.];stress=[0.0622,0.018]
+    T = [238.,358.];stress=[float(     .0622),float(      .018)]
     alpha = DGSZ_alpha(T,stress)
-    T = T[0];strainrate = strainrate[0];stress = 0.047;strain = 0.2
-    K = DGSZ_K(stress,strain,strainrate,m,T,alpha,c1,c2)
-    c3 = DGSZ_c3(strain,strainrate,m,T,alpha)
-    c4 = DGSZ_c4(strainrate,m,alpha,T)
-    a = DSGZ_a(0.3)
+    stress = float(      .047);strain = 0.2
+    K = DGSZ_K(stress,strain,strainrate[0],m,T[0],alpha,c1,c2)
+    c3 = DGSZ_c3(strain,strainrate[0],m,T[0],alpha)
+    c4 = DGSZ_c4(strainrate[0],m,alpha,T[0])
+    a = DSGZ_a(float(        .3))
     ##########################
 #    m_list =[0.05,0.075,0.1]
 #    m = 0.075
@@ -348,7 +348,7 @@ if __name__ == '__main__':
 #    c3_list = [0.001,0.1]
 #    c4_list = [11.,15.,20.]
     ##########################
-    res = DSGZ_CurveKey(1.5,385.,K,c1,c2,c3,c4,a,m,alpha,log_strain_rate,curvenum,pointnum)
+    res = DSGZ_CurveKey(1.5,T[0],K,c1,c2,c3,c4,a,m,alpha,log_strain_rate,curvenum,pointnum)
     plt.figure(4)
     for i in range(4):
         plt.plot(res[0][i],res[1][i],dashes=[2, 2, 10, 2])
