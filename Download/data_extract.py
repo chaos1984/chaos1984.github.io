@@ -4,14 +4,17 @@ Spyder Editor
 
 This is a temporary script file.
 """
-import Autolivlib as alv
+from DynaData import *
+import matplotlib.pyplot as plt
 if __name__ == '__main__':
-    PATH = r'C:\Users\yujin.wang\Desktop\111'
+    PATH = r'C:\Users\chaos\Desktop\test'
     FILE = '\\nodout'
-    NodoutFile = alv.nodout_SMP(PATH+FILE,0,0,0,0)
-    NodoutFile.simply.to_csv("data.csv")
+    NodoutFile = nodout_SMP(PATH+FILE,0,0,0,0)
+    a = NodoutFile.simply
     FILE = '\\bndout'
-    BndoutFile = alv.bndout(PATH+FILE,0,0,0,0)
-    BndoutFile.run.to_csv("data1.csv")
-    
+    BndoutFile = bndout(PATH+FILE,0,0,0,0)
+    b = BndoutFile.run
+    bb = list(range(len(b['yforce'].tolist())))
+    plt.plot(bb[10:],b['ytotal'][10:])
+    plt.show()
     

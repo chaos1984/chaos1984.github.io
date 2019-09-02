@@ -4,13 +4,15 @@ Created on %(date)
 @author:Yujin Wang
 '''
 import time
-from funmodule import *
-import Copyright
+# from funmodule import *
+# import Copyright
 import numpy as np,pandas as pd 
 from operator import itemgetter,attrgetter
 from scipy import signal
-from Post import *
+# from Post import *
 
+def string_split(string,symbol):
+	return [i for i in string.split(symbol) if i != '']
 
 class basic():
 	'''This is the base class for for the module'''
@@ -34,7 +36,7 @@ class nodout_SMP(basic):
 		flag_rot = 0
 		for line in open(self.src):
 			if ('time' in line):
-				timestep = float(line[105:116])
+				timestep = float(line[105:119])
 			elif (len(line) == 155):
 				string1 = []
 				string1.append(timestep)
@@ -219,7 +221,7 @@ class Dyna_extr(basic):
 			self.flag1 = write a updata mainfile(Dyna)
 			self.flag2 = write a updata materialfile(Dyna)
 		'''
-		print self.statement
+		print (self.statement)
 		isStart = 0
 		fout1 = open('New_'+self.flag1,'w')
 		fout2 = open('New_' + self.flag2,'w')
@@ -338,68 +340,28 @@ class bndout(basic):
         time = []
         total_data = []
         time_data = []
-        index = []
+        index = ['time']
         index_flag = 0
         for line in open(self.src):
-            if '=' in line:
                 line_data = string_split(line[:-1], ' ')
-                if 't=' in line and len(time_data) > 1:
-                    total_data.append(time_data)
-                    time_data = [filter(str.isdigit,line)]
-                    index_flag = 1
-                else:
-                    for par in line_data:
-                        if index_flag == 0 and ('#' or '=' in par ):
-                            index.append(filter(str.isalpha,par))
-                        else:
-                            time_data.append(eval(par))
+                if ' t=' in line :
+                    if len(time_data) > 1:
+                        total_data.append(time_data)
+                        index_flag = 1
+                    else:
+                        pass
+                    time_data = [float(line[line.index("=")+1:-1])]
+   
+                elif line.count('=')>1:
+                      for i,par in enumerate(line_data):
+                        if index_flag == 0 and i%2 == 0:
+                            index.append(par[:-1])
+                        elif i%2 != 0:
+                            time_data.append(float(par))
+        total_data.append(time_data)
+        # print (index)
         return pd.DataFrame(total_data,columns=index)
-@try_except
-def dynaMatCurvePlot(KeyFile,Pid,filepath,Scale):
-	#Index the mid
-	PartIDPar = []
-	for i in KeyFile.PART:
-		try:
-			if int(i[0]) in Pid:
-				PartIDPar.append(i[1].split('&')[1])
-		except:
-			pass
 
-	MatID = []
-	for i in KeyFile.PARAMETER:
-		try:
-			if i[1] in PartIDPar:
-				if i[2] not in MatID:
-					MatID.append( i[2])
-		except:
-			pass
-
-	CurveID = []
-	for mat in MatID:
-		for i,j in enumerate(KeyFile.MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE):
-			if mat == j[0]:
-				CurveID.append(KeyFile.MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE[i+1][2].strip())
-			
-	CurveStart = 0
-	print '#'*20
-	for k,l in enumerate(CurveID):
-		Curve = []
-		for i,j in enumerate(KeyFile.DEFINE_CURVE_TITLE):
-			if  j[0] == l:
-				CurveStart = 1
-			elif CurveStart == 1 and len(j)==2:
-				Curve.append([ float(j[0]),float(j[1])/Scale])
-			elif len(j)!=2:
-				CurveStart = 0
-		figpos = int('1'+str(len(CurveID))+str(k+1))
-
-		curveplot = CurvePlot('Mat ID:%s' %(l),'Effective plastic strain','Effective stress(GPa)',-1,1,figpos ,0.3,pd.DataFrame(Curve))
-		curveplot.frame
-		print 'Material ID: %s is Ploted! Curve ID: %s' %(MatID[k],l)
-	pic = filepath +'\\stress_strain.png'
-	plt.savefig(pic,dpi=100)
-	print '#'*20	
-	return CurveID
 		
 		
 if __name__ == '__main__':
