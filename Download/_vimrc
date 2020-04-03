@@ -1,0 +1,104 @@
+" Vim with all enhancements
+source $VIMRUNTIME/vimrc_example.vim
+
+" Use the internal diff if available.
+" Otherwise use the special 'diffexpr' for Windows.
+set rtp+=C:/CAE/Vim/.vim/bundle/Vundle.vim/
+call vundle#begin('C:/CAE/Vim/.vim/bundle/')
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'https://github.com/easymotion/vim-easymotion.git'
+Plugin 'git://github.com/tpope/vim-surround.git'
+Plugin 'kshenoy/vim-signature'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'https://github.com/gcmt/taboo.vim.git'
+Plugin 'https://github.com/mhinz/vim-grepper.git'
+Plugin 'https://github.com/Chun-Yang/vim-action-ag.git'
+Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+Plugin 'https://github.com/kien/rainbow_parentheses.vim'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'junegunn/fzf.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set noswapfile
+set nu        
+set backupdir=D:\Backup
+
+"≈‰÷√≤ …´¿®∫≈"
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+ 
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+set novisualbell
+"≈‰÷√pythonΩ‚ Õ∆˜
+    autocmd BufRead *.py set makeprg=python3\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"  
+    autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m  
+    autocmd BufRead *.py nmap <F5> :!python3 %<CR>  
+    autocmd BufRead *.py nmap <F6> :make<CR>  
+autocmd InsertLeave * se nocul
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+ 
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+set novisualbell
+"≈‰÷√pythonΩ‚ Õ∆˜
+    autocmd BufRead *.py set makeprg=python3\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"  
+    autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m  
+    autocmd BufRead *.py nmap <F5> :!python3 %<CR>  
+    autocmd BufRead *.py nmap <F6> :make<CR>  
+autocmd InsertLeave * se nocul
+
+
+
+
+if &diffopt !~# 'internal'
+
+	
+endif
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg1 = substitute(arg1, '!', '\!', 'g')
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg2 = substitute(arg2, '!', '\!', 'g')
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let arg3 = substitute(arg3, '!', '\!', 'g')
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  let cmd = substitute(cmd, '!', '\!', 'g')
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+
