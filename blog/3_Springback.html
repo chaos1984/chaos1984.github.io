@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0131)file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <style type="text/css">
+    body { background-color: #EEEEEE !important; }
+
+    </style>
+
+    <style type="text/css">
+        @keyframes flash {
+            0% { color: #80CBC4; }
+            10% { color: #00897B; }
+            40% { color: #00897B; }
+            50% { color: #80CBC4; }
+            60% { color: #00897B; }
+            90% { color: #00897B; }
+        }
+
+        .highlighted-anchor {
+            animation: 1s flash;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="./Springback_files/common.css">
+    <link rel="stylesheet" type="text/css" href="./Springback_files/v_moonlight.css">
+    <link rel="stylesheet" type="text/css" href="./Springback_files/v_native_codeblock.css">
+    <script src="qrc:/resources/qwebchannel.js"></script>
+    <script src="qrc:/utils/highlightjs/highlight.pack.js"></script>
+    <script src="qrc:/utils/clipboard.js/clipboard.min.js"></script>
+    <script src="qrc:/utils/markdown-it/markdown-it.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-headinganchor.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-task-lists.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-imsize.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-footnote.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-container.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-texmath.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-front-matter.js"></script>
+<script>var VMarkdownitOption = {html: true,
+breaks: true,
+linkify: true,
+sub: false,
+sup: false,
+metadata: true,
+emoji: false };
+</script>
+<script src="qrc:/utils/turndown/turndown.js"></script>
+<script src="qrc:/utils/turndown/turndown-plugin-gfm.js"></script>
+<link rel="stylesheet" type="text/css" href="./Springback_files/v_pure_mermaid.css">
+<script src="qrc:/utils/mermaid/mermaid.min.js"></script>
+<script>var VEnableMermaid = true;</script>
+<script src="qrc:/utils/flowchart.js/raphael.min.js"></script>
+<script src="qrc:/utils/flowchart.js/flowchart.min.js"></script>
+<script>var VEnableFlowchart = true;</script>
+<script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({
+                    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true,
+processClass: "tex2jax_process|language-mathjax|lang-mathjax"},
+                    showProcessingMessages: false,
+                    skipStartupTypeset: true,
+                    TeX: {
+                          Macros: {
+                              bm: ["\\boldsymbol{#1}", 1]
+                          },
+                          equationNumbers: {
+                              autoNumber: "AMS"
+                          }
+                    },
+                    messageStyle: "none"});
+MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
+</script>
+<script type="text/javascript" async="" src="./Springback_files/MathJax.js"></script>
+<script>var VEnableMathjax = true;</script>
+<script>var VEnableImageCaption = true;</script>
+<script src="qrc:/utils/highlightjs/highlightjs-line-numbers.min.js"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style>
+<script>var VEnableHighlightLineNumber = true;</script>
+<script>var VEnableFlashAnchor = true;</script>
+<script>var VStylesToInline = 'all$border:color:display:font-family:font-size:font-style:white-space:word-spacing:line-height:text-align:text-indent:padding-top:padding-bottom:margin-top:margin-bottom:background-color:font-weight,code$font-family:font-size:line-height:color:display:overfow-x:background-color:font-weight,li$line-height:background-color:font-weight,a$color:vertical-align:background-color:font-weight,pre$display:overflow-y:overflow-x:color:font-size:font-style:font-weight:letter-spacing:text-align:text-indent:word-spacing:background-color';</script>
+<script>var VOS = 'win';</script>
+
+    <script src="qrc:/resources/markdown-it.js" defer=""></script>
+    <script src="qrc:/resources/common.js" defer=""></script>
+    <script src="qrc:/resources/view_image.js" defer=""></script>
+    <script src="qrc:/resources/markdown_template.js" defer=""></script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <div id="content-div" style="display: block;"><h1 id="toc_0">弹簧压缩回弹分析中的问题<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_0" data-anchor-icon="#"></a></h1>
+<h2 id="toc_1">问题描述<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_1" data-anchor-icon="#"></a></h2>
+<blockquote>
+<p>对谈采用线弹性材料的弹簧进行压缩仿真，并将仿真最后时间步下的结果导出Dynain 文件，发现文件中存在有<strong>效塑性应变EPS</strong>；在上述基础上采用隐式分析弹簧回弹，测量弹簧回弹后的距离，发现<strong>回弹的距离小于压缩初始距离</strong>。</p>
+</blockquote>
+<h2 id="toc_2">模型描述<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_2" data-anchor-icon="#"></a></h2>
+<h3 id="toc_3" class="highlighted-anchor">计算过程<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_3" data-anchor-icon="#"></a></h3>
+<p>第一步，显示计算弹簧压缩，采用<code>*BOUNDARY_PRESCRIBED_MOTION_SET</code>实现弹簧压缩到指定形状。（也曾采用<code>*FINAL_GEOMETRY</code>实现工具压缩弹簧）<br>
+第二步，导出第一步仿真结果最后一步的Dynain文件，并约束弹簧中间一点，模拟弹簧自由恢复到未压缩状态，采用隐式求解。</p>
+<ul>
+<li>弹簧材料设置</li>
+</ul>
+<pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*KEYWORD</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*PART</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$HWCOLOR COMPS     <span class="hljs-number">201</span>      <span class="hljs-number">36</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">spring_elastic</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">500</span>        <span class="hljs-number">11</span>       <span class="hljs-number">500</span>         <span class="hljs-number">0</span>         <span class="hljs-number">3</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$HWCOLOR COMPS     <span class="hljs-number">200</span>      <span class="hljs-number">56</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">spring_fix                                                                     </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">501</span>        <span class="hljs-number">11</span>       <span class="hljs-number">500</span>         <span class="hljs-number">0</span>         <span class="hljs-number">3</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*SECTION_SOLID</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-number">11</span>        <span class="hljs-number">-1</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*SECTION_SOLID</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-number">13</span>        <span class="hljs-number">13</span>                                                              </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*MAT_ELASTIC</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="14"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$HMNAME MATERIALS       <span class="hljs-number">101</span>steel                                                                           </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="15"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">5007.8500E-06</span>     <span class="hljs-number">210.0</span>       <span class="hljs-number">0.3</span>                              </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="16"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*HOURGLASS</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="17"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">3</span>         <span class="hljs-number">5</span>    <span class="hljs-number">5.0E-2</span>         <span class="hljs-number">0</span>       <span class="hljs-number">1.5</span>    <span class="hljs-number">6.0E-2</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span> $</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="18"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*END</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="19"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$   </div></td></tr></tbody></table></code></pre>
+<ul>
+<li>弹簧压缩关键字设置</li>
+</ul>
+<pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*KEYWORD</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*BOUNDARY_PRESCRIBED_MOTION_SET</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#    nsid       dof       vad      lcid        sf       vid     death     birth</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>         <span class="hljs-number">4</span>         <span class="hljs-number">2</span>       <span class="hljs-number">500</span>       <span class="hljs-number">1.0</span>       <span class="hljs-number">500</span>        <span class="hljs-number">1</span>       <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">2</span>         <span class="hljs-number">4</span>         <span class="hljs-number">2</span>       <span class="hljs-number">500</span>       <span class="hljs-number">1.0</span>       <span class="hljs-number">501</span>        <span class="hljs-number">1</span>       <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*DEFINE_CURVE_TITLE</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">Spring</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#    lcid      sidr       sfa       sfo      offa      offo    dattyp     lcint</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">500</span>         <span class="hljs-number">0</span>       <span class="hljs-number">1.0</span>       <span class="hljs-number">1.0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#                a1                  o1  </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">                 <span class="hljs-number">0.0</span>                 <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">                   <span class="hljs-number">1</span>                <span class="hljs-number">10.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">                   <span class="hljs-number">5</span>                <span class="hljs-number">10.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="14"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*DEFINE_VECTOR_NODES_TITLE</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="15"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">Spring_assem1</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="16"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#     vid     nodet     nodeh     </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="17"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">500</span>   <span class="hljs-number">6008402</span>   <span class="hljs-number">6008239</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="18"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">Spring_assem2</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="19"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#     vid     nodet     nodeh     </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="20"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">501</span>   <span class="hljs-number">6008277</span>   <span class="hljs-number">6008209</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="21"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*END  </div></td></tr></tbody></table></code></pre>
+<ul>
+<li>计算控制卡片设置</li>
+</ul>
+<pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_ACCURACY</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$ OSU           INN    PIDOSU</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#     osu       inn    pidosu      iacc</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>         <span class="hljs-number">4</span>         <span class="hljs-number">0</span>         <span class="hljs-number">1</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_ENERGY</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$    HGEN      RWEN    SLNTEN     RYLEN</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#    hgen      rwen    slnten     rylen</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">2</span>         <span class="hljs-number">2</span>         <span class="hljs-number">2</span>         <span class="hljs-number">2</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_IMPLICIT_AUTO</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   iauto    iteopt    itewin     dtmin     dtmax     dtexp     kfail    kcycle</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>        <span class="hljs-number">11</span>         <span class="hljs-number">5</span>       <span class="hljs-number">0.1</span>       <span class="hljs-number">5.0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_IMPLICIT_DYNAMICS</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   imass     gamma      beta    tdybir    tdydth    tdybur     irate     alpha</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="14"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">0</span>       <span class="hljs-number">0.5</span>      <span class="hljs-number">0.25</span>       <span class="hljs-number">0.0</span>    <span class="hljs-number">1.0E28</span>    <span class="hljs-number">1.0E28</span>         <span class="hljs-number">0</span>       <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="15"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_IMPLICIT_GENERAL</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="16"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$  IMFLAG       DT0    IMFLAG      NSBS       IGS     CNSTN      FORM    ZERO_V</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="17"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#  imflag       dt0    imform      nsbs       igs     cnstn      form    zero_v</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="18"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>       <span class="hljs-number">1.0</span>         <span class="hljs-number">2</span>         <span class="hljs-number">1</span>         <span class="hljs-number">2</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="19"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_IMPLICIT_SOLUTION</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="20"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#  nsolvr    ilimit    maxref     dctol     ectol     rctol     lstol    abstol</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="21"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-number">12</span>        <span class="hljs-number">11</span>        <span class="hljs-number">15</span>    <span class="hljs-number">1.0E-2</span>    <span class="hljs-number">1.0E-2</span>    <span class="hljs-number">1.0E10</span>       <span class="hljs-number">0.9</span>   <span class="hljs-number">1.0E-20</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="22"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   dnorm    diverg     istif   nlprint    nlnorm   d3itctl     cpchk</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="23"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">2</span>         <span class="hljs-number">1</span>         <span class="hljs-number">1</span>         <span class="hljs-number">0</span>         <span class="hljs-number">2</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="24"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#  arcctl    arcdir    arclen    arcmth    arcdmp    arcpsi    arcalf    arctim</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="25"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">1</span>         <span class="hljs-number">2</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="26"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   lsmtd     lsdir      irad      srad      awgt      sred</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="27"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">5</span>         <span class="hljs-number">2</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="28"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_MPP_IO_NODUMP</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="29"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_OUTPUT</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="30"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$   NPOPT    NEECHO    NREFUP    IACCOP     OPIFS    IPNINT    IKEDIT    IFLUSH</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="31"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   npopt    neecho    nrefup    iaccop     opifs    ipnint    ikedit    iflush</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="32"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>         <span class="hljs-number">3</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="33"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$   IPRTF    IERODE     TET10    MSGMAX    IPCURV      GMDT   IP1DBLT</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="34"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   iprtf    ierode   tet10s8    msgmax    ipcurv      gmdt   ip1dblt      eocs</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="35"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">1</span>        <span class="hljs-number">50</span>         <span class="hljs-number">1</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="36"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   tolev    newleg    frfreq     minfo    solsig    msgflg    cdetol</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="37"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">2</span>         <span class="hljs-number">0</span>         <span class="hljs-number">1</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span>      <span class="hljs-number">10.0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="38"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_SHELL</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="39"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$   wrpang     esort     irnxx    istupd    theory       bwc     miter      proj</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="40"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-number">0.0</span>         <span class="hljs-number">1</span>         <span class="hljs-number">0</span>         <span class="hljs-number">4</span>         <span class="hljs-number">0</span>         <span class="hljs-number">1</span>         <span class="hljs-number">0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="41"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_SOLID</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="42"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$   ESORT    FMATRX   NIPTETS    SWLOCL    PSFAIL   T10JTOL</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="43"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#   esort   fmatrix   niptets    swlocl    psfail   t10jtol    icohed    tet13k</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="44"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         <span class="hljs-number">1</span>         <span class="hljs-number">2</span>         <span class="hljs-number">4</span>         <span class="hljs-number">2</span>         <span class="hljs-number">0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="45"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*CONTROL_TERMINATION</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="46"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$$  ENDTIM    ENDCYC     DTMIN    ENDENG    ENDMAS     NOSOL</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="47"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">$#  endtim    endcyc     dtmin    endeng    endmas</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="48"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">     <span class="hljs-number">110.0</span>         <span class="hljs-number">0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>       <span class="hljs-number">0.0</span>         <span class="hljs-number">0</span></div></td></tr></tbody></table></code></pre>
+<h3 id="toc_4">问题1<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_4" data-anchor-icon="#"></a></h3>
+<p><font color="red">为什么采用线弹性材料，弹簧的dynain文件中存在塑性应变的信息？</font><br>
+图一 中 <code>*INITIAL_STRAIN_SOLID</code> 和图二红圈所示的EPS。<br>
+<img src="./Springback_files/20200408104454839_13964.png" alt="" class="view-image"><img src="./Springback_files/20200408104647423_23079.png" alt="" class="view-image"></p>
+<h3 id="toc_5">问题2<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_5" data-anchor-icon="#"></a></h3>
+<p><font color="red">为什么采用线弹性材料的弹簧无法恢复的初始状态（隐式分析）？</font><br>
+<div class="img-package"><img src="./Springback_files/20200408104010188_3882.png" alt="" class="img-center view-image"></div></p>
+<h2 id="toc_6">初步分析<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_6" data-anchor-icon="#"></a></h2>
+<p>去除Dynain的应变信息（包括关键字<code>*INITIAL_STRAIN_SOLID</code>和EPS），并未改变恢复后的距离。</p>
+<h2 id="toc_7">Dyna 技术支持回复邮件<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_7" data-anchor-icon="#"></a></h2>
+<p><div class="img-package"><img src="./Springback_files/20200417111951985_27310.png" alt="" width="421" class="img-center view-image"></div><br>
+<strong>Respons</strong><br>
+1.增加<code>*DAMPING_PART_STIFFNESS</code></p>
+<pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*DAMPING_PART_STIFFNESS</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment">#     pid      coef</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       501       0.1   </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr></tbody></table></code></pre>
+<p>2.增加<code>*INTERFACE_SPRINGBACK_LSDYNA</code></p>
+<pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*INTERFACE_SPRINGBACK_LSDYNA</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment">#    psid      nshv     ftype               ftnsr    nthhsv             intstrn</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         1                   0</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*SET_PART_LIST_TITLE</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment"># title</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">DAMPING</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment">#     sid       da1       da2       da3       da4    solver</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">         1</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment">#    pid1      pid2      pid3      pid4      pid5      pid6      pid7      pid8</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       500       501</div></td></tr></tbody></table></code></pre>
+<h3 id="toc_8"><code>*BOUNDARY_PRESCRIBED_MOTION_SET</code> 对比<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_8" data-anchor-icon="#"></a></h3>
+<blockquote>
+<p>为了保证弹簧压缩过程稳定，因此对两个点之间的相互距离进行观察，并绘图，从而判断弹簧是否还趋于稳定。<br>
+<img src="./Springback_files/20200417112510624_12224.png" alt="" width="220" class="view-image"><img src="./Springback_files/20200417112613952_13285.png" alt="" width="616" class="view-image"><br>
+由上图可以看出，弹簧再20ms以后，弹簧振动已经停止。</p>
+</blockquote>
+<p><strong>对比结果</strong> 压缩前 30.37 恢复后30.38。</p>
+<h3 id="toc_9"><code>*FINAL_GEOMETRY</code> 对比<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_9" data-anchor-icon="#"></a></h3>
+<p><strong>对比结果</strong> 压缩前46.7 回弹后46.7</p>
+<h1 id="toc_10">总结<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_10" data-anchor-icon="#"></a></h1>
+<ul>
+<li>观察压缩过程是否稳定？</li>
+</ul>
+<blockquote>
+<p>通过观察弹后振动较为明显的节点于相对静止节点之间的距离变化</p>
+</blockquote>
+<ul>
+<li>增加刚度阻尼可以有效抑制振动<br>
+<img src="./Springback_files/20200420144402934_15689.png" alt="" width="420" class="view-image"><img src="./Springback_files/20200417112613952_13285.png" alt="" width="420" class="view-image"></li>
+</ul>
+</div>
+
+    <div id="image-view-div" class="modal-box" style="display: none;">
+        <span id="image-view-close" class="modal-close">×</span>
+        <img id="image-view" class="modal-content">
+    </div>
+
+    <div id="preview-div" style="display:none;"></div>
+
+    <div id="inplace-preview-div" style="display:none;"></div>
+
+    <div id="text-html-div" style="display:none;"></div>
+
+
+</body></html>
