@@ -121,7 +121,7 @@
 </div>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
-	const gitalk = new Gitalk({
+	  const gitalk = new Gitalk({
 
 	  clientID: '9d596046f31abb237c68',
 
@@ -134,11 +134,7 @@
       title: location.hash.match(/#(.*?)([?]|$)/)[1],
       id: location.hash.match(/#(.*?)([?]|$)/)[1],
 	})
-	 window.onhashchange = function(event){
-      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-        location.reload()
-      }
-    }
+
 	gitalk.render('gitalk-container')
 </script>
 </div>
