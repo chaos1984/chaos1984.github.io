@@ -23,9 +23,9 @@
         }
     </style>
 
-    <link rel="stylesheet" type="text/css" href="./Springback_files/common.css">
-    <link rel="stylesheet" type="text/css" href="./Springback_files/v_moonlight.css">
-    <link rel="stylesheet" type="text/css" href="./Springback_files/v_native_codeblock.css">
+    <link rel="stylesheet" type="text/css" href="./_v_images/common.css">
+    <link rel="stylesheet" type="text/css" href="./_v_images/v_moonlight.css">
+    <link rel="stylesheet" type="text/css" href="./_v_images/v_native_codeblock.css">
     <script src="qrc:/resources/qwebchannel.js"></script>
     <script src="qrc:/utils/highlightjs/highlight.pack.js"></script>
     <script src="qrc:/utils/clipboard.js/clipboard.min.js"></script>
@@ -47,7 +47,7 @@ emoji: false };
 </script>
 <script src="qrc:/utils/turndown/turndown.js"></script>
 <script src="qrc:/utils/turndown/turndown-plugin-gfm.js"></script>
-<link rel="stylesheet" type="text/css" href="./Springback_files/v_pure_mermaid.css">
+<link rel="stylesheet" type="text/css" href="./_v_images/v_pure_mermaid.css">
 <script src="qrc:/utils/mermaid/mermaid.min.js"></script>
 <script>var VEnableMermaid = true;</script>
 <script src="qrc:/utils/flowchart.js/raphael.min.js"></script>
@@ -70,7 +70,7 @@ processClass: "tex2jax_process|language-mathjax|lang-mathjax"},
                     messageStyle: "none"});
 MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
 </script>
-<script type="text/javascript" async="" src="./Springback_files/MathJax.js"></script>
+<script type="text/javascript" async="" src="./_v_images/MathJax.js"></script>
 <script>var VEnableMathjax = true;</script>
 <script>var VEnableImageCaption = true;</script>
 <script src="qrc:/utils/highlightjs/highlightjs-line-numbers.min.js"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style>
@@ -204,14 +204,14 @@ MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
 <h3 id="toc_4">问题1<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_4" data-anchor-icon="#"></a></h3>
 <p><font color="red">为什么采用线弹性材料，弹簧的dynain文件中存在塑性应变的信息？</font><br>
 图一 中 <code>*INITIAL_STRAIN_SOLID</code> 和图二红圈所示的EPS。<br>
-<img src="./Springback_files/20200408104454839_13964.png" alt="" class="view-image"><img src="./Springback_files/20200408104647423_23079.png" alt="" class="view-image"></p>
+<img src="./_v_images/20200408104454839_13964.png" alt="" class="view-image"><img src="./_v_images/20200408104647423_23079.png" alt="" class="view-image"></p>
 <h3 id="toc_5">问题2<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_5" data-anchor-icon="#"></a></h3>
 <p><font color="red">为什么采用线弹性材料的弹簧无法恢复的初始状态（隐式分析）？</font><br>
-<div class="img-package"><img src="./Springback_files/20200408104010188_3882.png" alt="" class="img-center view-image"></div></p>
+<div class="img-package"><img src="./_v_images/20200408104010188_3882.png" alt="" class="img-center view-image"></div></p>
 <h2 id="toc_6">初步分析<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_6" data-anchor-icon="#"></a></h2>
 <p>去除Dynain的应变信息（包括关键字<code>*INITIAL_STRAIN_SOLID</code>和EPS），并未改变恢复后的距离。</p>
 <h2 id="toc_7">Dyna 技术支持回复邮件<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_7" data-anchor-icon="#"></a></h2>
-<p><div class="img-package"><img src="./Springback_files/20200417111951985_27310.png" alt="" width="421" class="img-center view-image"></div><br>
+<p><div class="img-package"><img src="./_v_images/20200417111951985_27310.png" alt="" width="421" class="img-center view-image"></div><br>
 <strong>Respons</strong><br>
 1.增加<code>*DAMPING_PART_STIFFNESS</code></p>
 <pre><code class="lang-dyna hljs"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">*DAMPING_PART_STIFFNESS</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-meta">$</span><span class="bash"><span class="hljs-comment">#     pid      coef</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       501       0.1   </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr></tbody></table></code></pre>
@@ -220,7 +220,7 @@ MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
 <h3 id="toc_8"><code>*BOUNDARY_PRESCRIBED_MOTION_SET</code> 对比<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Dyna%E5%BC%B9%E6%80%A7%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98.md#toc_8" data-anchor-icon="#"></a></h3>
 <blockquote>
 <p>为了保证弹簧压缩过程稳定，因此对两个点之间的相互距离进行观察，并绘图，从而判断弹簧是否还趋于稳定。<br>
-<img src="./Springback_files/20200417112510624_12224.png" alt="" width="220" class="view-image"><img src="./Springback_files/20200417112613952_13285.png" alt="" width="616" class="view-image"><br>
+<img src="./_v_images/20200417112510624_12224.png" alt="" width="220" class="view-image"><img src="./_v_images/20200417112613952_13285.png" alt="" width="616" class="view-image"><br>
 由上图可以看出，弹簧再20ms以后，弹簧振动已经停止。</p>
 </blockquote>
 <p><strong>对比结果</strong> 压缩前 30.37 恢复后30.38。</p>
@@ -235,7 +235,7 @@ MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
 </blockquote>
 <ul>
 <li>增加刚度阻尼可以有效抑制振动<br>
-<img src="./Springback_files/20200420144402934_15689.png" alt="" width="420" class="view-image"><img src="./Springback_files/20200417112613952_13285.png" alt="" width="420" class="view-image"></li>
+<img src="./_v_images/20200420144402934_15689.png" alt="" width="420" class="view-image"><img src="./_v_images/20200417112613952_13285.png" alt="" width="420" class="view-image"></li>
 </ul>
 </div>
 
