@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- saved from url=(0149)file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <style type="text/css">
+    /* STYLE_GLOBAL_PLACE_HOLDER */
+    </style>
+
+    <style type="text/css">
+        @keyframes flash {
+            0% { color: #7482CF; }
+            10% { color: #5768c4; }
+            40% { color: #5768c4; }
+            50% { color: #7482CF; }
+            60% { color: #5768c4; }
+            90% { color: #5768c4; }
+        }
+
+        .highlighted-anchor {
+            animation: 1s flash;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="./Vue+Django搭建前后端方法/common.css">
+    <link rel="stylesheet" type="text/css" href="./Vue+Django搭建前后端方法/v_moonlight.css">
+    <link rel="stylesheet" type="text/css" href="./Vue+Django搭建前后端方法/v_moonlight_codeblock.css">
+    <script src="qrc:/resources/qwebchannel.js"></script>
+    <script src="qrc:/utils/highlightjs/highlight.pack.js"></script>
+    <script src="qrc:/utils/clipboard.js/clipboard.min.js"></script>
+    <script src="qrc:/utils/markdown-it/markdown-it.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-headinganchor.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-task-lists.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-imsize.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-footnote.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-container.min.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-texmath.js"></script>
+<script src="qrc:/utils/markdown-it/markdown-it-front-matter.js"></script>
+<script>var VMarkdownitOption = {html: true,
+breaks: true,
+linkify: true,
+sub: false,
+sup: false,
+metadata: true,
+emoji: false };
+</script>
+<script src="qrc:/utils/turndown/turndown.js"></script>
+<script src="qrc:/utils/turndown/turndown-plugin-gfm.js"></script>
+<link rel="stylesheet" type="text/css" href="./Vue+Django搭建前后端方法/v_moonlight_mermaid.css">
+<script src="qrc:/utils/mermaid/mermaid.min.js"></script>
+<script>var VEnableMermaid = true;</script>
+<script src="qrc:/utils/flowchart.js/raphael.min.js"></script>
+<script src="qrc:/utils/flowchart.js/flowchart.min.js"></script>
+<script>var VEnableFlowchart = true;</script>
+<script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({
+                    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true,
+processClass: "tex2jax_process|language-mathjax|lang-mathjax"},
+                    showProcessingMessages: false,
+                    skipStartupTypeset: true,
+                    TeX: {
+                          Macros: {
+                              bm: ["\\boldsymbol{#1}", 1]
+                          },
+                          equationNumbers: {
+                              autoNumber: "AMS"
+                          }
+                    },
+                    messageStyle: "none"});
+MathJax.Hub.Register.StartupHook("End", function() { handleMathjaxReady(); });
+</script>
+<script type="text/javascript" async="" src="./Vue+Django搭建前后端方法/MathJax.js"></script>
+<script>var VEnableMathjax = true;</script>
+<script>var VEnableImageCaption = true;</script>
+<script src="qrc:/utils/highlightjs/highlightjs-line-numbers.min.js"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style>
+<script>var VEnableHighlightLineNumber = true;</script>
+<script>var VEnableFlashAnchor = true;</script>
+<script>var VStylesToInline = 'all$border:color:display:font-family:font-size:font-style:white-space:word-spacing:line-height:text-align:text-indent:padding-top:padding-bottom:margin-top:margin-bottom:background-color:font-weight,code$font-family:font-size:line-height:color:display:overfow-x:background-color:font-weight,li$line-height:background-color:font-weight,a$color:vertical-align:background-color:font-weight,pre$display:overflow-y:overflow-x:color:font-size:font-style:font-weight:letter-spacing:text-align:text-indent:word-spacing:background-color';</script>
+<script>var VOS = 'win';</script>
+
+    <script src="qrc:/resources/markdown-it.js" defer=""></script>
+    <script src="qrc:/resources/common.js" defer=""></script>
+    <script src="qrc:/resources/view_image.js" defer=""></script>
+    <script src="qrc:/resources/markdown_template.js" defer=""></script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+    <div id="content-div" style="display: block;"><h1 id="toc_0">Vue+Django搭建前后端方法<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_0" data-anchor-icon="#"></a></h1>
+<h2 id="toc_1">1  简介<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_1" data-anchor-icon="#"></a></h2>
+<h3 id="toc_2">1.1 Vue<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_2" data-anchor-icon="#"></a></h3>
+<blockquote>
+<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。<br>
+如果你想在深入学习 Vue 之前对它有更多了解，我们制作了一个视频，带您了解其核心概念和一个示例工程。<br>
+如果你已经是有经验的前端开发者，想知道 Vue 与其它库/框架有哪些区别，请查看对比其它框架。</p>
+</blockquote>
+<h3 id="toc_3">1.2 Django 简介<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_3" data-anchor-icon="#"></a></h3>
+<blockquote>
+<p>Django是一个开放源代码的Web应用框架，由Python写成。采用了MTV的框架模式，即模型M，视图V和模版T。它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。并于2005年7月在BSD许可证下发布。</p>
+</blockquote>
+<h2 id="toc_4">2  安装方法<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_4" data-anchor-icon="#"></a></h2>
+<h3 id="toc_5">2.1 Vue<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_5" data-anchor-icon="#"></a></h3>
+<ul>
+<li>首先安装Node.js，安装成功后命令行 npm -v 显示版本号，验证安装成功。</li>
+<li>npm install -g @vue/cli 安装vue 和脚手架（框架），命令行vue -V显示版本号验证安装成功。</li>
+</ul>
+<h3 id="toc_6">2.2 Django 的安装<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_6" data-anchor-icon="#"></a></h3>
+<p>命令行或者终端中输入： Python3 -m pip install django</p>
+<h2 id="toc_7">3 Vue创建前端静态页面<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_7" data-anchor-icon="#"></a></h2>
+<h3 id="toc_8">3.1 创建脚手架<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_8" data-anchor-icon="#"></a></h3>
+<ul>
+<li>创建前端文件夹，有两种方法</li>
+</ul>
+<ol>
+<li>Vue 版本 &gt;=2 ：             <strong>vue create [options] <app-name></app-name></strong></li>
+<li>Vue 低版本  ：                ** npm install -g @vue/cli-init   ;   vue init webpack [app-name]**</li>
+</ol>
+<h3 id="toc_9">3.2 运行和打包<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_9" data-anchor-icon="#"></a></h3>
+<ul>
+<li>建立文件夹后，在文件夹中运行 <strong>npm install</strong> 安装所需的库</li>
+<li><strong>npm run dev</strong> 开启本地端口，查看网页。</li>
+<li><strong>npm run build</strong> 打包。打包完成后如果直接运行dist中的index，可能无法显示页面<br>
+此时，如果直接运行dist文件夹中的.html文件，页面将无法加载static文件夹中的文件，如果想本地打开需要修改html文件中的加载路径（href）。两种方法：</li>
+</ul>
+<ol>
+<li>npm install -g http-server，然后打开config文件夹下面的index.js，修改    <strong>assetsPublicPath: '/' =&gt;    assetsPublicPath: './'</strong>。</li>
+<li>直接修改index.html文件中的路径 即：href=./static/css/app.30790115300ab27614ce176899523b62.css rel=stylesheet，即增加第一个“ .”。</li>
+</ol>
+<h2 id="toc_10">4 Django框架<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_10" data-anchor-icon="#"></a></h2>
+<h3 id="toc_11">4.1 App的创建<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_11" data-anchor-icon="#"></a></h3>
+<p>命令行或终端输入django-admin start project，在helloworld下生成app的框架，其文件如下：<br>
+<div class="img-package"><img src="./Vue+Django搭建前后端方法/20200715092350508_13371.png" alt="" width="373" class="img-center view-image"></div></p>
+<h3 id="toc_12" class="highlighted-anchor">4.2 静态文件配置<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_12" data-anchor-icon="#"></a></h3>
+<ol>
+<li><a href="http://xn--vuedistindexmanage-6o22a38iga682pvpec50conb876ao93bbdrh2bia9195kia.py/">将Vue打包好的dist文件夹中的index文件放到manage.py</a> 同级目录，并将static文件夹也拷贝到同级目录。</li>
+<li class="img-package"><img src="./Vue+Django搭建前后端方法/20200715095001291_26623.png" alt="" width="375" class="img-center view-image"></li>
+<li><a href="http://xn--settings-vz2ve12k.py/">配置settings.py</a><br>
+<img src="./Vue+Django搭建前后端方法/20200715092801640_14959.png" alt="" width="373" class="view-image"><img src="./Vue+Django搭建前后端方法/20200715093216327_30447.png" alt="" width="270" class="view-image"></li>
+<li><a href="http://urls.py/">urls.py</a><br>
+<div class="img-package"><img src="./Vue+Django搭建前后端方法/20200715093642408_19463.png" alt="" width="373" class="img-center view-image"></div></li>
+<li><a href="http://xn--views-ll6hz28e.py/">创建views.py</a><br>
+<div class="img-package"><img src="./Vue+Django搭建前后端方法/20200715093907567_1320.png" alt="" class="img-center view-image"></div></li>
+<li>index.html文件<br>
+<div class="img-package"><img src="./Vue+Django搭建前后端方法/20200715095151108_11897.png" alt="" width="373" class="img-center view-image"></div></li>
+</ol>
+<h2 id="toc_13">关键问题<a class="vnote-anchor" href="file:///C:/Users/yujin.wang/Documents/vnote_notebooks/Polymer/polymer/Vue+Django%E6%90%AD%E5%BB%BA%E5%89%8D%E5%90%8E%E7%AB%AF%E6%96%B9%E6%B3%95%20.md#toc_13" data-anchor-icon="#"></a></h2>
+<p><strong>静态文件的路径设置</strong><br>
+静态文件路径设置很关键，否则页面加载不上去。</p>
+</div>
+
+    <div id="image-view-div" class="modal-box" style="display: none;">
+        <span id="image-view-close" class="modal-close">×</span>
+        <img id="image-view" class="modal-content">
+    </div>
+
+    <div id="preview-div" style="display:none;"></div>
+
+    <div id="inplace-preview-div" style="display:none;"></div>
+
+    <div id="text-html-div" style="display:none;"></div>
+
+
+</body></html>
